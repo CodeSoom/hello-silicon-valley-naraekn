@@ -1,1 +1,17 @@
+## Mac OS x
+.DS_*
+
+## IntelliJ
+.idea
+
+## VS Code
+.vscode
+
+## CodeceptJS
+output
+
+## Node.js
 node_modules
+
+## Jest
+coverage
