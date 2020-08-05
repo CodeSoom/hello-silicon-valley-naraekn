@@ -1,12 +1,14 @@
 import React from 'react';
 
-import { Link } from 'react-router-dom';
+import TestContainer from '../containers/TestsContainer';
 
 export default function TestsPage() {
+  // TODO: Use history for navigation to "ResultPage"
+
   return ((
-    <div>
-      <h1>테스트 설명</h1>
-      <Link to="/tests/1">테스트 시작하기</Link>
-    </div>
+    <>
+      <h1>테스트</h1>
+      <TestContainer />
+    </>
   ));
 }

@@ -6,7 +6,6 @@ import Header from './components/Header';
 import AboutPage from './pages/AboutPage';
 import HomePage from './pages/HomePage';
 import TestsPage from './pages/TestsPage';
-import QuestionsPage from './pages/QuestionsPage';
 
 export default function App() {
   const history = useHistory();
@@ -22,8 +21,7 @@ export default function App() {
       />
       <Switch>
         <Route exact path="/" component={HomePage} />
-        <Route exact path="/tests" component={TestsPage} />
-        <Route path="/tests/:id" component={QuestionsPage} />
+        <Route path="/tests" component={TestsPage} />
         <Route path="/about" component={AboutPage} />
       </Switch>
     </div>

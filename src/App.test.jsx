@@ -36,7 +36,7 @@ describe('App', () => {
     it('renders TestsPage', () => {
       const { container } = renderApp({ path: '/tests' });
 
-      expect(container).toHaveTextContent(/테스트 설명/);
+      expect(container).toHaveTextContent(/테스트/);
     });
   });
 
