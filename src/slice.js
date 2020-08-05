@@ -4,6 +4,7 @@ const { actions, reducer } = createSlice({
   name: 'application',
   initialState: {
     currentTest: 0,
+    selectedAnswer: null,
   },
   reducers: {
     setCurrentTest(state, { payload: currentTest }) {
@@ -12,11 +13,18 @@ const { actions, reducer } = createSlice({
         currentTest,
       };
     },
+    setSelectedAnswer(state, { payload: selectedAnswer }) {
+      return {
+        ...state,
+        selectedAnswer,
+      };
+    },
   },
 });
 
 export const {
   setCurrentTest,
+  setSelectedAnswer,
 } = actions;
 
 export default reducer;

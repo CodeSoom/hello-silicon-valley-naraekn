@@ -2,23 +2,25 @@ import React from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import Test from '../components/Test';
+import TestContent from '../components/TestContent';
+import TestNavigationButtons from '../components/TestNavigationButtons';
 
 import questionnaire from '../data/questionnaire';
 
-import { setCurrentTest } from '../slice';
+import { setCurrentTest, setSelectedAnswer } from '../slice';
 
 import { get } from '../utils';
 
 export default function TestsContainer() {
   const dispatch = useDispatch();
 
+  const selectedAnswer = useSelector(get('selectedAnswer'));
   const currentTest = useSelector(get('currentTest'));
 
   const { type, content } = questionnaire[currentTest || 0];
 
-  function handleClickAnswer() {
-    // TODO: dispatch ..
+  function handleClickAnswer(answerId) {
+    dispatch(setSelectedAnswer(answerId));
   }
 
   function handleClickBack(currentId) {
@@ -32,10 +34,13 @@ export default function TestsContainer() {
 
   return (
     <>
-      <Test
+      <TestContent
         type={type}
         content={content}
+        selectedAnswer={selectedAnswer}
         handleClickAnswer={handleClickAnswer}
+      />
+      <TestNavigationButtons
         handleClickBack={() => handleClickBack(currentTest)}
         handleClickNext={() => handleClickNext(currentTest)}
       />
