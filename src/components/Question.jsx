@@ -1,7 +1,11 @@
 import React from 'react';
 
-export default function Question({ content, handleClick }) {
+export default function Question({
+  content, selectedAnswer, handleClick,
+}) {
   const { question, answers } = content;
+
+  const isSelected = (id) => id === selectedAnswer;
 
   return (
     <div>
@@ -14,9 +18,10 @@ export default function Question({ content, handleClick }) {
             <button
               key={answer.id}
               type="button"
-              onClick={handleClick}
+              onClick={() => handleClick(answer.id)}
             >
               {answer.title}
+              {isSelected(answer.id) && '(V)'}
             </button>
           ))
         }

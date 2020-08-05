@@ -2,28 +2,28 @@ import React from 'react';
 
 import { render } from '@testing-library/react';
 
-import Test from './Test';
+import TestContent from './TestContent';
 
 import CONTENT from '../../fixtures/content';
 
-describe('Test', () => {
+describe('TestContent', () => {
   const handleClickAnswer = jest.fn();
-  const handleClickRouting = jest.fn();
+
+  const selectedAnswer = 1;
 
   function renderTest({ type, content }) {
     return render((
-      <Test
+      <TestContent
         type={type}
         content={content}
+        selectedAnswer={selectedAnswer}
         handleClickAnswer={handleClickAnswer}
-        handleClickRouting={handleClickRouting}
       />
     ));
   }
 
   beforeEach(() => {
     handleClickAnswer.mockClear();
-    handleClickRouting.mockClear();
   });
 
   context('when type is `overview`', () => {
@@ -49,9 +49,17 @@ describe('Test', () => {
 
       expect(getByText(question)).not.toBeNull();
 
-      answers.forEach((answer) => {
-        expect(getByText(answer.title)).not.toBeNull();
-      });
+      answers
+        .filter((answer) => answer.id !== selectedAnswer)
+        .forEach(({ title }) => {
+          expect(getByText(title)).not.toBeNull();
+        });
+
+      answers
+        .filter((answer) => answer.id === selectedAnswer)
+        .forEach(({ title }) => {
+          expect(getByText(`${title}(V)`)).not.toBeNull();
+        });
     });
   });
 });
