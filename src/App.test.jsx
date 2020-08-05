@@ -4,7 +4,11 @@ import { render, fireEvent } from '@testing-library/react';
 
 import { MemoryRouter } from 'react-router-dom';
 
+import { useDispatch, useSelector } from 'react-redux';
+
 import App from './App';
+
+jest.mock('react-redux');
 
 const mockPush = jest.fn();
 
@@ -16,6 +20,8 @@ jest.mock('react-router-dom', () => ({
 }));
 
 describe('App', () => {
+  const dispatch = jest.fn();
+
   function renderApp({ path }) {
     return render((
       <MemoryRouter initialEntries={[path]}>
@@ -23,6 +29,16 @@ describe('App', () => {
       </MemoryRouter>
     ));
   }
+
+  beforeEach(() => {
+    dispatch.mockClear();
+
+    useDispatch.mockImplementation(() => dispatch);
+
+    useSelector.mockImplementation((selector) => selector({
+      currentTest: 0,
+    }));
+  });
 
   context('with path /', () => {
     it('renders HomePage', () => {
