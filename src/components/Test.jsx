@@ -6,10 +6,11 @@ import PageRoutingButton from './PageRoutingButton';
 
 // TODO: first page - hide back button
 // TODO: last page - add submit button
+// TODO: Too many props - Reduce a number of props
 
 export default function Test({
   type, content,
-  handleClickAnswer, handleClickRouting,
+  handleClickAnswer, handleClickBack, handleClickNext,
 }) {
   return (
     <>
@@ -32,11 +33,11 @@ export default function Test({
       <div>
         <PageRoutingButton
           title="back"
-          handleClick={handleClickRouting}
+          handleClick={handleClickBack}
         />
         <PageRoutingButton
           title="next"
-          handleClick={handleClickRouting}
+          handleClick={handleClickNext}
         />
       </div>
     </>
