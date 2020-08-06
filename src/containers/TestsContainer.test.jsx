@@ -13,7 +13,9 @@ jest.mock('react-redux');
 describe('TestsContainer', () => {
   const dispatch = jest.fn();
 
-  const currentTest = 1;
+  const currentTest = 2;
+  const selectedAnswer = 1;
+  const savedAnswers = {};
 
   const renderTestsContainer = () => render((
     <TestsContainer />
@@ -24,6 +26,8 @@ describe('TestsContainer', () => {
 
     useSelector.mockImplementation((selector) => selector({
       currentTest,
+      selectedAnswer,
+      savedAnswers,
     }));
   });
 

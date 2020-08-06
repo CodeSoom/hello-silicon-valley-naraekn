@@ -5,9 +5,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import TestContent from '../components/TestContent';
 import TestNavigationButtons from '../components/TestNavigationButtons';
 
-import questionnaire from '../data/questionnaire';
+import {
+  setCurrentTest, setSelectedAnswer, saveAnswer,
+} from '../slice';
 
-import { setCurrentTest, setSelectedAnswer } from '../slice';
+import { getTest } from '../services/api';
 
 import { get } from '../utils';
 
@@ -15,21 +17,32 @@ export default function TestsContainer() {
   const dispatch = useDispatch();
 
   const selectedAnswer = useSelector(get('selectedAnswer'));
+  const savedAnswers = useSelector(get('savedAnswers'));
   const currentTest = useSelector(get('currentTest'));
 
-  const { type, content } = questionnaire[currentTest || 0];
+  const { type, content } = getTest(currentTest);
 
   function handleClickAnswer(answerId) {
     dispatch(setSelectedAnswer(answerId));
   }
 
-  function handleClickBack(currentId) {
-    dispatch(setCurrentTest(currentId - 1));
+  function handleClickBack() {
+    const answerBefore = savedAnswers[currentTest - 1] || null;
+
+    dispatch(setSelectedAnswer(answerBefore));
+
+    dispatch(setCurrentTest(currentTest - 1));
   }
 
-  function handleClickNext(currentId) {
-    // TODO: save user's choice
-    dispatch(setCurrentTest(currentId + 1));
+  function handleClickNext() {
+    if (type === 'question') {
+      dispatch(saveAnswer({
+        questionId: currentTest,
+        answerId: selectedAnswer,
+      }));
+      dispatch(setSelectedAnswer(null));
+    }
+    dispatch(setCurrentTest(currentTest + 1));
   }
 
   return (
@@ -41,8 +54,8 @@ export default function TestsContainer() {
         handleClickAnswer={handleClickAnswer}
       />
       <TestNavigationButtons
-        handleClickBack={() => handleClickBack(currentTest)}
-        handleClickNext={() => handleClickNext(currentTest)}
+        handleClickBack={handleClickBack}
+        handleClickNext={handleClickNext}
       />
     </>
   );
