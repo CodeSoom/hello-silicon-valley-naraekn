@@ -23,8 +23,8 @@ describe('Question', () => {
 
     expect(getByText(question)).not.toBeNull();
 
-    answers.forEach((answer) => {
-      expect(getByText(answer.title)).not.toBeNull();
+    answers.forEach(({ title }) => {
+      expect(getByText(title)).not.toBeNull();
     });
   });
 

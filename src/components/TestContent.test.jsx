@@ -9,9 +9,7 @@ import CONTENT from '../../fixtures/content';
 describe('TestContent', () => {
   const handleClickAnswer = jest.fn();
 
-  const selectedAnswer = 1;
-
-  function renderTest({ type, content }) {
+  function renderTestContent({ type, content, selectedAnswer }) {
     return render((
       <TestContent
         type={type}
@@ -29,34 +27,55 @@ describe('TestContent', () => {
   context('when type is `overview`', () => {
     it('renders overview', () => {
       const type = 'overview';
-
-      // TODO: Refactor fixture
       const content = { title: 'Day', explanation: '설명설명' };
 
-      const { getByText } = renderTest({ type, content });
+      const { getByText } = renderTestContent({
+        type,
+        content,
+        selectedAnswer: null,
+      });
 
       expect(getByText(content.title)).not.toBeNull();
       expect(getByText(content.explanation)).not.toBeNull();
     });
   });
 
-  context('when type is `question`', () => {
-    it('renders overview', () => {
+  context('when type is `question` without a selected answer', () => {
+    it('renders question', () => {
       const type = 'question';
       const { question, answers } = CONTENT;
 
-      const { getByText } = renderTest({ type, content: CONTENT });
+      const { getByText } = renderTestContent({
+        type,
+        content: CONTENT,
+        selectedAnswer: null,
+      });
 
       expect(getByText(question)).not.toBeNull();
 
       answers
-        .filter((answer) => answer.id !== selectedAnswer)
         .forEach(({ title }) => {
           expect(getByText(title)).not.toBeNull();
         });
+    });
+  });
+
+  context('when type is `question`', () => {
+    it('renders question with `v` sign', () => {
+      const type = 'question';
+      const { question, answers } = CONTENT;
+      const selectedAnswer = 1;
+
+      const { getByText } = renderTestContent({
+        type,
+        content: CONTENT,
+        selectedAnswer,
+      });
+
+      expect(getByText(question)).not.toBeNull();
 
       answers
-        .filter((answer) => answer.id === selectedAnswer)
+        .filter(({ id }) => id === selectedAnswer)
         .forEach(({ title }) => {
           expect(getByText(`${title}(V)`)).not.toBeNull();
         });
