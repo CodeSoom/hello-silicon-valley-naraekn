@@ -3,8 +3,9 @@ import { createSlice } from '@reduxjs/toolkit';
 const { actions, reducer } = createSlice({
   name: 'application',
   initialState: {
-    currentTest: 0,
+    currentTest: 1,
     selectedAnswer: null,
+    savedAnswers: {},
   },
   reducers: {
     setCurrentTest(state, { payload: currentTest }) {
@@ -19,12 +20,24 @@ const { actions, reducer } = createSlice({
         selectedAnswer,
       };
     },
+    saveAnswer(state, { payload: { questionId, answerId } }) {
+      const { savedAnswers } = state;
+
+      return {
+        ...state,
+        savedAnswers: {
+          ...savedAnswers,
+          [questionId]: answerId,
+        },
+      };
+    },
   },
 });
 
 export const {
   setCurrentTest,
   setSelectedAnswer,
+  saveAnswer,
 } = actions;
 
 export default reducer;

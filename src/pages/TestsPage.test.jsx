@@ -13,7 +13,9 @@ jest.mock('react-redux');
 test('TestsPage', () => {
   beforeEach(() => {
     useSelector.mockImplementation((selector) => selector({
-      currentTest: 0,
+      currentTest: 1,
+      selectedAnswer: null,
+      savedAnswers: {},
     }));
   });
 

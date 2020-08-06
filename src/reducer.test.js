@@ -1,32 +1,21 @@
 import reducer from './reducer';
 
-import { setCurrentTest, setSelectedAnswer } from './slice';
+import {
+  setCurrentTest,
+  setSelectedAnswer,
+  saveAnswer,
+} from './slice';
 
 describe('reducer', () => {
-  context('Before any action is executed', () => {
-    it('returns initial state', () => {
-      const initialState = {
-        currentTest: 0,
-        selectedAnswer: null,
-      };
-
-      // TODO: Find a way to remove `undefined`
-
-      const state = reducer(undefined, { type: 'action' });
-
-      expect(state).toEqual(initialState);
-    });
-  });
-
   describe('setCurrentTest', () => {
     it('changes current test', () => {
       const previousState = {
         currentTest: 0,
       };
 
-      const state = reducer(previousState, setCurrentTest(1));
+      const { currentTest } = reducer(previousState, setCurrentTest(1));
 
-      expect(state.currentTest).toEqual(1);
+      expect(currentTest).toEqual(1);
     });
   });
 
@@ -36,9 +25,24 @@ describe('reducer', () => {
         selectedAnswer: null,
       };
 
-      const state = reducer(previousState, setSelectedAnswer(1));
+      const { selectedAnswer } = reducer(previousState, setSelectedAnswer(1));
 
-      expect(state.selectedAnswer).toEqual(1);
+      expect(selectedAnswer).toEqual(1);
+    });
+  });
+
+  describe('saveAnswer', () => {
+    it('changes the savedAnswers', () => {
+      const previousState = {
+        savedAnswers: {},
+      };
+
+      const { savedAnswers } = reducer(previousState, saveAnswer({
+        questionId: 2,
+        answerId: 1,
+      }));
+
+      expect(savedAnswers[2]).toEqual(1);
     });
   });
 });

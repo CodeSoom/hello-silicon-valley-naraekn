@@ -36,7 +36,9 @@ describe('App', () => {
     useDispatch.mockImplementation(() => dispatch);
 
     useSelector.mockImplementation((selector) => selector({
-      currentTest: 0,
+      currentTest: 1,
+      selectedAnswer: null,
+      savedAnswers: {},
     }));
   });
 
