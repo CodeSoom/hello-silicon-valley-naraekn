@@ -6,6 +6,7 @@ import TestContent from '../components/TestContent';
 import TestNavigationButtons from '../components/TestNavigationButtons';
 
 import {
+  setCurrentTest,
   setSelectedAnswer,
   saveAnswer,
   loadTest,
@@ -13,7 +14,9 @@ import {
 
 import { get } from '../utils';
 
-export default function TestsContainer() {
+// TODO: Too complicated - Find a way to make TestsContainer simpler
+
+export default function TestsContainer({ handleClickLink }) {
   const dispatch = useDispatch();
 
   const selectedAnswer = useSelector(get('selectedAnswer'));
@@ -41,6 +44,14 @@ export default function TestsContainer() {
     dispatch(loadTest(nextId));
   }
 
+  function handleClickSubmit() {
+    handleClickLink('/result');
+    dispatch(setSelectedAnswer(null));
+    dispatch(setCurrentTest(null));
+  }
+
+  // TODO: Find a way to make handleClickBack and handleClickNext props
+
   return (
     <>
       <TestContent
@@ -49,6 +60,7 @@ export default function TestsContainer() {
         handleClickAnswer={handleClickAnswer}
       />
       <TestNavigationButtons
+        test={currentTest}
         handleClickBack={() => handleClickBack({
           test: currentTest,
           answers: savedAnswers,
@@ -57,6 +69,7 @@ export default function TestsContainer() {
           test: currentTest,
           answer: selectedAnswer,
         })}
+        handleClickSubmit={handleClickSubmit}
       />
     </>
   );
