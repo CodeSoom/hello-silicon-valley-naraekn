@@ -2,23 +2,36 @@ import React from 'react';
 
 import PageRoutingButton from './PageRoutingButton';
 
-// TODO: first page - hide back button
-// TODO: last page - hide next button
-// TODO: last page - add submit button
+// TODO: Too many props - Reduce the number of props
 
 export default function TestNavigationButtons({
-  handleClickBack, handleClickNext,
+  test: { previousId, nextId },
+  handleClickBack, handleClickNext, handleClickSubmit,
 }) {
   return (
     <div>
-      <PageRoutingButton
-        title="back"
-        handleClick={handleClickBack}
-      />
-      <PageRoutingButton
-        title="next"
-        handleClick={handleClickNext}
-      />
+      { previousId
+        && (
+          <PageRoutingButton
+            title="back"
+            handleClick={handleClickBack}
+          />
+        ) }
+      {
+        nextId
+          ? (
+            <PageRoutingButton
+              title="next"
+              handleClick={handleClickNext}
+            />
+          )
+          : (
+            <PageRoutingButton
+              title="submit"
+              handleClick={handleClickSubmit}
+            />
+          )
+      }
     </div>
   );
 }
