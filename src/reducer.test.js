@@ -30,15 +30,18 @@ describe('reducer', () => {
   });
 
   describe('saveAnswer', () => {
-    it('changes the savedAnswers', () => {
+    const questionId = 2;
+    const answerId = 1;
+
+    it('appends the answerId to savedAnswers', () => {
       const previousState = { savedAnswers: {} };
 
-      const { savedAnswers } = reducer(previousState, saveAnswer({
-        questionId: 2,
-        answerId: 1,
-      }));
+      const { savedAnswers } = reducer(
+        previousState,
+        saveAnswer({ questionId, answerId }),
+      );
 
-      expect(savedAnswers[2]).toEqual(1);
+      expect(savedAnswers[questionId]).toEqual(answerId);
     });
   });
 });
