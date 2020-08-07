@@ -4,8 +4,8 @@ import Overview from './Overview';
 import Question from './Question';
 
 export default function TestContent({
-  type, content, selectedAnswer,
-  handleClickAnswer,
+  test: { type, content },
+  selectedAnswer, handleClickAnswer,
 }) {
   return (
     <>

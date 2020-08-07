@@ -1,17 +1,22 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+import {
+  getTest,
+  getInitialTest,
+} from './services/api';
+
 const { actions, reducer } = createSlice({
   name: 'application',
   initialState: {
-    currentTest: 1,
+    currentTest: null,
     selectedAnswer: null,
     savedAnswers: {},
   },
   reducers: {
-    setCurrentTest(state, { payload: currentTest }) {
+    setCurrentTest(state, { payload: test }) {
       return {
         ...state,
-        currentTest,
+        currentTest: test,
       };
     },
     setSelectedAnswer(state, { payload: selectedAnswer }) {
@@ -39,5 +44,21 @@ export const {
   setSelectedAnswer,
   saveAnswer,
 } = actions;
+
+export function loadTest(id) {
+  return (dispatch) => {
+    const test = getTest(id);
+
+    dispatch(setCurrentTest(test));
+  };
+}
+
+export function loadInitialTest() {
+  return (dispatch) => {
+    const test = getInitialTest();
+
+    dispatch(setCurrentTest(test));
+  };
+}
 
 export default reducer;

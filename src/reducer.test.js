@@ -6,24 +6,22 @@ import {
   saveAnswer,
 } from './slice';
 
+import OVERVIEW from '../fixtures/overview';
+
 describe('reducer', () => {
   describe('setCurrentTest', () => {
     it('changes current test', () => {
-      const previousState = {
-        currentTest: 0,
-      };
+      const previousState = { currentTest: null };
 
-      const { currentTest } = reducer(previousState, setCurrentTest(1));
+      const { currentTest } = reducer(previousState, setCurrentTest(OVERVIEW));
 
-      expect(currentTest).toEqual(1);
+      expect(currentTest).toEqual(OVERVIEW);
     });
   });
 
   describe('setSelectedAnswer', () => {
     it('changes the selected answer', () => {
-      const previousState = {
-        selectedAnswer: null,
-      };
+      const previousState = { selectedAnswer: null };
 
       const { selectedAnswer } = reducer(previousState, setSelectedAnswer(1));
 
@@ -33,9 +31,7 @@ describe('reducer', () => {
 
   describe('saveAnswer', () => {
     it('changes the savedAnswers', () => {
-      const previousState = {
-        savedAnswers: {},
-      };
+      const previousState = { savedAnswers: {} };
 
       const { savedAnswers } = reducer(previousState, saveAnswer({
         questionId: 2,

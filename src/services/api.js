@@ -4,9 +4,11 @@ export function getTest(testId) {
   const test = questionnaire
     .find(({ id }) => id === testId);
 
-  return test || questionnaire[0];
+  return test;
 }
 
-export function xxx() {
-  // TODO: ...
+// TODO: Use getInitialTest when the user clicked `test` button in HomePage
+
+export function getInitialTest() {
+  return questionnaire[0];
 }

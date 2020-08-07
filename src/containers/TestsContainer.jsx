@@ -6,10 +6,10 @@ import TestContent from '../components/TestContent';
 import TestNavigationButtons from '../components/TestNavigationButtons';
 
 import {
-  setCurrentTest, setSelectedAnswer, saveAnswer,
+  setSelectedAnswer,
+  saveAnswer,
+  loadTest,
 } from '../slice';
-
-import { getTest } from '../services/api';
 
 import { get } from '../utils';
 
@@ -20,42 +20,43 @@ export default function TestsContainer() {
   const savedAnswers = useSelector(get('savedAnswers'));
   const currentTest = useSelector(get('currentTest'));
 
-  const { type, content } = getTest(currentTest);
-
   function handleClickAnswer(answerId) {
     dispatch(setSelectedAnswer(answerId));
   }
 
-  function handleClickBack() {
-    const answerBefore = savedAnswers[currentTest - 1] || null;
+  function handleClickBack({
+    test: { previousId }, answers,
+  }) {
+    const selectedId = answers[previousId] || null;
 
-    dispatch(setSelectedAnswer(answerBefore));
-
-    dispatch(setCurrentTest(currentTest - 1));
+    dispatch(setSelectedAnswer(selectedId));
+    dispatch(loadTest(previousId));
   }
 
-  function handleClickNext() {
-    if (type === 'question') {
-      dispatch(saveAnswer({
-        questionId: currentTest,
-        answerId: selectedAnswer,
-      }));
-      dispatch(setSelectedAnswer(null));
-    }
-    dispatch(setCurrentTest(currentTest + 1));
+  function handleClickNext({
+    test: { id, nextId }, answer,
+  }) {
+    dispatch(saveAnswer({ questionId: id, answerId: answer }));
+    dispatch(setSelectedAnswer(null));
+    dispatch(loadTest(nextId));
   }
 
   return (
     <>
       <TestContent
-        type={type}
-        content={content}
+        test={currentTest}
         selectedAnswer={selectedAnswer}
         handleClickAnswer={handleClickAnswer}
       />
       <TestNavigationButtons
-        handleClickBack={handleClickBack}
-        handleClickNext={handleClickNext}
+        handleClickBack={() => handleClickBack({
+          test: currentTest,
+          answers: savedAnswers,
+        })}
+        handleClickNext={() => handleClickNext({
+          test: currentTest,
+          answer: selectedAnswer,
+        })}
       />
     </>
   );

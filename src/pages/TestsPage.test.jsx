@@ -6,16 +6,16 @@ import { useSelector } from 'react-redux';
 
 import TestsPage from './TestsPage';
 
+import QUESTION from '../../fixtures/question';
+
 jest.mock('react-redux');
 
 test('TestsPage', () => {
-  beforeEach(() => {
-    useSelector.mockImplementation((selector) => selector({
-      currentTest: 1,
-      selectedAnswer: null,
-      savedAnswers: {},
-    }));
-  });
+  useSelector.mockImplementation((selector) => selector({
+    currentTest: QUESTION,
+    selectedAnswer: null,
+    savedAnswers: {},
+  }));
 
   render((
     <TestsPage />
