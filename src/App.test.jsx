@@ -8,6 +8,8 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import App from './App';
 
+import question from '../fixtures/question';
+
 jest.mock('react-redux');
 
 const mockPush = jest.fn();
@@ -36,7 +38,7 @@ describe('App', () => {
     useDispatch.mockImplementation(() => dispatch);
 
     useSelector.mockImplementation((selector) => selector({
-      currentTest: 1,
+      currentTest: question,
       selectedAnswer: null,
       savedAnswers: {},
     }));

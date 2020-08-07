@@ -6,48 +6,61 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import TestsContainer from './TestsContainer';
 
-import { setCurrentTest } from '../slice';
+import QUESTION from '../../fixtures/question';
 
 jest.mock('react-redux');
 
 describe('TestsContainer', () => {
   const dispatch = jest.fn();
 
-  const currentTest = 2;
-  const selectedAnswer = 1;
-  const savedAnswers = {};
-
   const renderTestsContainer = () => render((
     <TestsContainer />
   ));
 
   beforeEach(() => {
+    dispatch.mockClear();
+
     useDispatch.mockImplementation(() => dispatch);
 
     useSelector.mockImplementation((selector) => selector({
-      currentTest,
-      selectedAnswer,
-      savedAnswers,
+      currentTest: QUESTION,
+      selectedAnswer: null,
+      savedAnswers: {},
     }));
   });
 
+  context('when an answer button is clicked', () => {
+    it('dispatches setSelectedAnswer`', () => {
+      const { getByText } = renderTestsContainer();
+
+      const { content: { answers } } = QUESTION;
+
+      fireEvent.click(getByText(answers[0].title));
+
+      expect(dispatch).toBeCalledWith({
+        payload: answers[0].id,
+        type: 'application/setSelectedAnswer',
+      });
+    });
+  });
+
   context('when `back` button is clicked', () => {
-    it('dispatches setCurrentTest with `currentTest - 1`', () => {
+    it('dispatches setSelectedAnswer and loadTest`', () => {
       const { getByText } = renderTestsContainer();
 
       fireEvent.click(getByText(/back/));
 
-      expect(dispatch).toBeCalledWith(setCurrentTest(currentTest - 1));
+      expect(dispatch).toBeCalledTimes(2);
     });
   });
 
   context('when `next` button is clicked', () => {
-    it('dispatches setCurrentTest with `currentTest + 1`', () => {
+    it('dispatches saveAnswer, setSelctedAnswer, and loadTest`', () => {
       const { getByText } = renderTestsContainer();
 
       fireEvent.click(getByText(/next/));
 
-      expect(dispatch).toBeCalledWith(setCurrentTest(currentTest + 1));
+      expect(dispatch).toBeCalledTimes(3);
     });
   });
 });

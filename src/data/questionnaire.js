@@ -3,6 +3,8 @@
 const questionnaire = [
   {
     id: 1,
+    previousId: null,
+    nextId: 2,
     type: 'overview',
     content: {
       title: 'Day1,',
@@ -11,6 +13,8 @@ const questionnaire = [
   },
   {
     id: 2,
+    previousId: 1,
+    nextId: 3,
     type: 'question',
     content: {
       question: '샌프란시스코 Golden Gate Bridge에서 만난 이상형. 당장이라도 사랑에 빠질 것 같아요 ! 그 사람은 어떤 스타일일까요 ? ',
@@ -24,6 +28,8 @@ const questionnaire = [
   },
   {
     id: 3,
+    previousId: 2,
+    nextId: 4,
     type: 'question',
     content: {
       question: '그 / 그녀와의 데이트 전날, 당신은 무엇을 하고 있을까요?',
@@ -37,6 +43,8 @@ const questionnaire = [
   },
   {
     id: 4,
+    previousId: 3,
+    nextId: 5,
     type: 'overview',
     content: {
       title: 'Day2,',
@@ -45,6 +53,8 @@ const questionnaire = [
   },
   {
     id: 5,
+    previousId: 4,
+    nextId: null,
     type: 'question',
     content: {
       question: '투자자 앞에서 피칭을 합니다 당신은 무엇을 내세우시겠습니까',
