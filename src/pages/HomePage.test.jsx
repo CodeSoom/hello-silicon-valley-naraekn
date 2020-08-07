@@ -14,4 +14,6 @@ test('HomePage', () => {
   ));
 
   expect(getByText(/테스트하기/)).not.toBeNull();
+
+  expect(getByText(/About/)).not.toBeNull();
 });
