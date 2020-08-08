@@ -7,14 +7,14 @@ import Question from './Question';
 import content from '../../fixtures/content';
 
 describe('Question', () => {
-  const handleClick = jest.fn();
+  const handleClickAnswer = jest.fn();
 
   const { question, answers } = content;
 
   const renderQuestion = () => render((
     <Question
       content={content}
-      handleClick={handleClick}
+      handleClickAnswer={handleClickAnswer}
     />
   ));
 
@@ -37,7 +37,7 @@ describe('Question', () => {
 
         fireEvent.click(getByText(title));
 
-        expect(handleClick).toBeCalled();
+        expect(handleClickAnswer).toBeCalled();
       });
     });
   });

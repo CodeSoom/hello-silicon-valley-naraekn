@@ -4,7 +4,7 @@ import Overview from './Overview';
 import Question from './Question';
 
 export default function TestContent({
-  test: { type, content },
+  id, type, content,
   selectedAnswer, handleClickAnswer,
 }) {
   return (
@@ -19,9 +19,10 @@ export default function TestContent({
             )
             : (
               <Question
+                id={id}
                 selectedAnswer={selectedAnswer}
                 content={content}
-                handleClick={handleClickAnswer}
+                handleClickAnswer={handleClickAnswer}
               />
             )
         }

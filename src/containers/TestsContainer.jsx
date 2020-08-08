@@ -6,69 +6,53 @@ import TestContent from '../components/TestContent';
 import TestNavigationButtons from '../components/TestNavigationButtons';
 
 import {
-  setCurrentTest,
-  setSelectedAnswer,
-  saveAnswer,
+  setAnswer,
+  setTest,
   loadTest,
 } from '../slice';
 
 import { get } from '../utils';
 
-// TODO: Too complicated - Find a way to make TestsContainer simpler
-
 export default function TestsContainer({ handleClickLink }) {
   const dispatch = useDispatch();
 
-  const selectedAnswer = useSelector(get('selectedAnswer'));
-  const savedAnswers = useSelector(get('savedAnswers'));
-  const currentTest = useSelector(get('currentTest'));
+  const answers = useSelector(get('answers'));
+  const test = useSelector(get('test'));
 
-  function handleClickAnswer(answerId) {
-    dispatch(setSelectedAnswer(answerId));
+  function handleClickAnswer({ questionId, answerId }) {
+    dispatch(setAnswer({ questionId, answerId }));
   }
 
-  function handleClickBack({
-    test: { previousId }, answers,
-  }) {
-    const selectedId = answers[previousId] || null;
-
-    dispatch(setSelectedAnswer(selectedId));
-    dispatch(loadTest(previousId));
-  }
-
-  function handleClickNext({
-    test: { id, nextId }, answer,
-  }) {
-    dispatch(saveAnswer({ questionId: id, answerId: answer }));
-    dispatch(setSelectedAnswer(null));
-    dispatch(loadTest(nextId));
+  function handleClickNavigation(id) {
+    dispatch(loadTest(id));
   }
 
   function handleClickSubmit() {
+    dispatch(setTest(null));
     handleClickLink('/result');
-    dispatch(setSelectedAnswer(null));
-    dispatch(setCurrentTest(null));
   }
 
-  // TODO: Find a way to make handleClickBack and handleClickNext props
+  const {
+    id, previousId, nextId, type, content,
+  } = test;
+
+  const selectedAnswer = answers[id] || null;
+
+  // TODO: Too many props - Find a way to reduce a number of props
 
   return (
     <>
       <TestContent
-        test={currentTest}
+        id={id}
+        type={type}
+        content={content}
         selectedAnswer={selectedAnswer}
         handleClickAnswer={handleClickAnswer}
       />
       <TestNavigationButtons
-        test={currentTest}
-        handleClickBack={() => handleClickBack({
-          test: currentTest,
-          answers: savedAnswers,
-        })}
-        handleClickNext={() => handleClickNext({
-          test: currentTest,
-          answer: selectedAnswer,
-        })}
+        previousId={previousId}
+        nextId={nextId}
+        handleClickNavigation={handleClickNavigation}
         handleClickSubmit={handleClickSubmit}
       />
     </>
