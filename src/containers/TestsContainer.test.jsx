@@ -6,61 +6,97 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import TestsContainer from './TestsContainer';
 
-import QUESTION from '../../fixtures/question';
+import CONTENT from '../../fixtures/content';
 
 jest.mock('react-redux');
 
+const mockPush = jest.fn();
+
+jest.mock('react-router-dom', () => ({
+  ...jest.requireActual('react-router-dom'),
+  useHistory() {
+    return { push: mockPush };
+  },
+}));
+
 describe('TestsContainer', () => {
   const dispatch = jest.fn();
+  const handleClickLink = jest.fn();
+
+  const currentId = 1;
 
   const renderTestsContainer = () => render((
-    <TestsContainer />
+    <TestsContainer
+      handleClickLink={handleClickLink}
+    />
   ));
 
-  beforeEach(() => {
+  // TODO: Check if codes below are "clean codes"
+
+  function setTestEnvironment(previousId = 1, nextId = 3) {
     dispatch.mockClear();
 
     useDispatch.mockImplementation(() => dispatch);
 
     useSelector.mockImplementation((selector) => selector({
-      currentTest: QUESTION,
-      selectedAnswer: null,
-      savedAnswers: {},
+      test: {
+        type: 'question',
+        content: CONTENT,
+        id: currentId,
+        previousId,
+        nextId,
+      },
+      answers: {},
     }));
-  });
+  }
 
   context('when an answer button is clicked', () => {
-    it('dispatches setSelectedAnswer`', () => {
+    beforeEach(() => {
+      setTestEnvironment();
+    });
+
+    it('dispatches `setAnswer`', () => {
       const { getByText } = renderTestsContainer();
 
-      const { content: { answers } } = QUESTION;
+      const { id, title } = CONTENT.answers[0];
 
-      fireEvent.click(getByText(answers[0].title));
+      fireEvent.click(getByText(title));
 
       expect(dispatch).toBeCalledWith({
-        payload: answers[0].id,
-        type: 'application/setSelectedAnswer',
+        type: 'application/setAnswer',
+        payload: { questionId: currentId, answerId: id },
       });
     });
   });
 
-  context('when `back` button is clicked', () => {
-    it('dispatches setSelectedAnswer and loadTest`', () => {
+  context('when `back` or `next` button is clicked', () => {
+    beforeEach(() => {
+      setTestEnvironment();
+    });
+
+    it('dispatches `loadTest`', () => {
       const { getByText } = renderTestsContainer();
 
       fireEvent.click(getByText(/back/));
 
-      expect(dispatch).toBeCalledTimes(2);
+      expect(dispatch).toBeCalledTimes(1);
     });
   });
 
-  context('when `next` button is clicked', () => {
-    it('dispatches saveAnswer, setSelctedAnswer, and loadTest`', () => {
+  context('when a `submit` button is clicked', () => {
+    beforeEach(() => {
+      setTestEnvironment(4, null);
+    });
+
+    it('dispatches `setTest` with null', () => {
       const { getByText } = renderTestsContainer();
 
-      fireEvent.click(getByText(/next/));
+      fireEvent.click(getByText(/submit/));
 
-      expect(dispatch).toBeCalledTimes(3);
+      expect(dispatch).toBeCalledWith({
+        type: 'application/setTest',
+        payload: null,
+      });
     });
   });
 });

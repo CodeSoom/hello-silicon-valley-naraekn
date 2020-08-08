@@ -5,8 +5,8 @@ import PageRoutingButton from './PageRoutingButton';
 // TODO: Too many props - Reduce the number of props
 
 export default function TestNavigationButtons({
-  test: { previousId, nextId },
-  handleClickBack, handleClickNext, handleClickSubmit,
+  previousId, nextId,
+  handleClickNavigation, handleClickSubmit,
 }) {
   return (
     <div>
@@ -14,7 +14,7 @@ export default function TestNavigationButtons({
         && (
           <PageRoutingButton
             title="back"
-            handleClick={handleClickBack}
+            handleClick={() => handleClickNavigation(previousId)}
           />
         ) }
       {
@@ -22,7 +22,7 @@ export default function TestNavigationButtons({
           ? (
             <PageRoutingButton
               title="next"
-              handleClick={handleClickNext}
+              handleClick={() => handleClickNavigation(nextId)}
             />
           )
           : (

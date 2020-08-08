@@ -1,11 +1,16 @@
 import React from 'react';
 
 export default function Question({
-  content, selectedAnswer, handleClick,
+  id, content, selectedAnswer, handleClickAnswer,
 }) {
   const { question, answers } = content;
 
-  const isSelected = (id) => id === selectedAnswer;
+  const isSelected = (index) => index === selectedAnswer;
+
+  const handleClick = (answerId) => handleClickAnswer({
+    questionId: id,
+    answerId,
+  });
 
   return (
     <div>

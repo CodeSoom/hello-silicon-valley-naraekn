@@ -1,47 +1,38 @@
 import reducer from './reducer';
 
 import {
-  setCurrentTest,
-  setSelectedAnswer,
-  saveAnswer,
+  setTest,
+  setAnswer,
 } from './slice';
 
 import OVERVIEW from '../fixtures/overview';
 
 describe('reducer', () => {
-  describe('setCurrentTest', () => {
+  describe('setTest', () => {
     it('changes current test', () => {
-      const previousState = { currentTest: null };
+      const previousState = { test: null };
 
-      const { currentTest } = reducer(previousState, setCurrentTest(OVERVIEW));
+      const { test } = reducer(previousState, setTest(OVERVIEW));
 
-      expect(currentTest).toEqual(OVERVIEW);
+      expect(test).toEqual(OVERVIEW);
     });
   });
 
-  describe('setSelectedAnswer', () => {
-    it('changes the selected answer', () => {
-      const previousState = { selectedAnswer: null };
-
-      const { selectedAnswer } = reducer(previousState, setSelectedAnswer(1));
-
-      expect(selectedAnswer).toEqual(1);
-    });
-  });
-
-  describe('saveAnswer', () => {
+  describe('setAnswer', () => {
     const questionId = 2;
     const answerId = 1;
 
-    it('appends the answerId to savedAnswers', () => {
-      const previousState = { savedAnswers: {} };
+    it('appends the answerId to answers', () => {
+      const previousState = {
+        answers: {},
+      };
 
-      const { savedAnswers } = reducer(
+      const { answers } = reducer(
         previousState,
-        saveAnswer({ questionId, answerId }),
+        setAnswer({ questionId, answerId }),
       );
 
-      expect(savedAnswers[questionId]).toEqual(answerId);
+      expect(answers[questionId]).toEqual(answerId);
     });
   });
 });

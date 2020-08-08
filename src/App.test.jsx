@@ -27,9 +27,8 @@ describe('App', () => {
     useDispatch.mockImplementation(() => dispatch);
 
     useSelector.mockImplementation((selector) => selector({
-      currentTest: question,
-      selectedAnswer: null,
-      savedAnswers: {},
+      test: question,
+      answers: {},
     }));
   });
 
@@ -51,10 +50,18 @@ describe('App', () => {
   });
 
   context('with path /about', () => {
-    it('renders TestsPage', () => {
+    it('renders AboutPage', () => {
       const { container } = renderApp({ path: '/about' });
 
       expect(container).toHaveTextContent(/About/);
+    });
+  });
+
+  context('with path /result', () => {
+    it('renders ResultPage', () => {
+      const { container } = renderApp({ path: '/result' });
+
+      expect(container).toHaveTextContent(/결과/);
     });
   });
 });
