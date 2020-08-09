@@ -88,15 +88,12 @@ describe('TestsContainer', () => {
       setTestEnvironment(4, null);
     });
 
-    it('dispatches `setTest` with null', () => {
+    it('dispatches `setTest` and `loadResult`', () => {
       const { getByText } = renderTestsContainer();
 
       fireEvent.click(getByText(/submit/));
 
-      expect(dispatch).toBeCalledWith({
-        type: 'application/setTest',
-        payload: null,
-      });
+      expect(dispatch).toBeCalledTimes(2);
     });
   });
 });

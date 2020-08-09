@@ -3,13 +3,20 @@ import { createSlice } from '@reduxjs/toolkit';
 import {
   getTest,
   getInitialTest,
+  getScores,
 } from './services/api';
+
+import {
+  calculateScore,
+  findTopScore,
+} from './utils';
 
 const { actions, reducer } = createSlice({
   name: 'application',
   initialState: {
     test: null,
     answers: {},
+    result: null,
   },
   reducers: {
     setTest(state, { payload: test }) {
@@ -29,12 +36,19 @@ const { actions, reducer } = createSlice({
         },
       };
     },
+    setResult(state, { payload: result }) {
+      return {
+        ...state,
+        result,
+      };
+    },
   },
 });
 
 export const {
   setTest,
   setAnswer,
+  setResult,
 } = actions;
 
 export function loadTest(id) {
@@ -50,6 +64,18 @@ export function loadInitialTest() {
     const test = getInitialTest();
 
     dispatch(setTest(test));
+  };
+}
+
+export function loadResult(answers) {
+  return (dispatch) => {
+    const scores = getScores();
+
+    const score = calculateScore({ answers, scores });
+
+    const result = findTopScore(score);
+
+    dispatch(setResult(result));
   };
 }
 
