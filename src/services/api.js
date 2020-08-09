@@ -1,5 +1,6 @@
 import questionnaire from '../data/questionnaire';
 import scores from '../data/scores';
+import results from '../data/results';
 
 export function getTest(testId) {
   const test = questionnaire
@@ -14,4 +15,11 @@ export function getInitialTest() {
 
 export function getScores() {
   return scores;
+}
+
+export function getResult(resultId) {
+  const result = results
+    .find(({ id }) => id === resultId);
+
+  return result;
 }

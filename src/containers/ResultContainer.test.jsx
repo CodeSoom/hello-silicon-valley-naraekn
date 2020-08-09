@@ -6,20 +6,23 @@ import { useSelector } from 'react-redux';
 
 import { MemoryRouter } from 'react-router-dom';
 
-import ResultPage from './ResultPage';
+import ResultContainer from './ResultContainer';
 
 import RESULTS from '../../fixtures/results';
 
-test('ResultPage', () => {
+test('ResultContainer', () => {
   useSelector.mockImplementation((selector) => selector({
     result: RESULTS[0],
   }));
 
   const { getByText } = render((
     <MemoryRouter>
-      <ResultPage />
+      <ResultContainer />
     </MemoryRouter>
   ));
 
-  expect(getByText(/결과/)).not.toBeNull();
+  const { name, description } = RESULTS[0];
+
+  expect(getByText(name)).not.toBeNull();
+  expect(getByText(description)).not.toBeNull();
 });

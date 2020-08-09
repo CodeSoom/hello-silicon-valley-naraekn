@@ -4,6 +4,7 @@ import {
   getTest,
   getInitialTest,
   getScores,
+  getResult,
 } from './services/api';
 
 import {
@@ -67,13 +68,17 @@ export function loadInitialTest() {
   };
 }
 
+// TODO: Check if the function below is too complicated
+
 export function loadResult(answers) {
   return (dispatch) => {
     const scores = getScores();
 
     const score = calculateScore({ answers, scores });
 
-    const result = findTopScore(score);
+    const resultId = findTopScore(score);
+
+    const result = getResult(resultId);
 
     dispatch(setResult(result));
   };

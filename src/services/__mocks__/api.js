@@ -11,3 +11,7 @@ export function getInitialTest() {
 export function getScores() {
   return SCORES;
 }
+
+export function getResult(resultId) {
+  return { id: resultId };
+}

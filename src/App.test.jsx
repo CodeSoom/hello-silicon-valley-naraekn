@@ -8,7 +8,8 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import App from './App';
 
-import question from '../fixtures/question';
+import QUESTION from '../fixtures/question';
+import RESULTS from '../fixtures/results';
 
 describe('App', () => {
   const dispatch = jest.fn();
@@ -27,8 +28,9 @@ describe('App', () => {
     useDispatch.mockImplementation(() => dispatch);
 
     useSelector.mockImplementation((selector) => selector({
-      test: question,
+      test: QUESTION,
       answers: {},
+      result: RESULTS[0],
     }));
   });
 
