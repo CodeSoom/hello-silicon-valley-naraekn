@@ -1,29 +1,27 @@
 import React from 'react';
 
-import { render, fireEvent } from '@testing-library/react';
-
 import { useSelector, useDispatch } from 'react-redux';
+import { getDefaultMiddleware } from '@reduxjs/toolkit';
+
+import { render, fireEvent } from '@testing-library/react';
+import configureStore from 'redux-mock-store';
 
 import TestsContainer from './TestsContainer';
+
+import { setAnswer, setTest } from '../slice';
 
 import CONTENT from '../../fixtures/content';
 
 jest.mock('react-redux');
-
-const mockPush = jest.fn();
-
-jest.mock('react-router-dom', () => ({
-  ...jest.requireActual('react-router-dom'),
-  useHistory() {
-    return { push: mockPush };
-  },
-}));
+jest.mock('../services/api');
 
 describe('TestsContainer', () => {
-  const dispatch = jest.fn();
+  const currentId = 1;
+
   const handleClickLink = jest.fn();
 
-  const currentId = 1;
+  const mockStore = configureStore(getDefaultMiddleware());
+  const store = mockStore({});
 
   const renderTestsContainer = () => render((
     <TestsContainer
@@ -31,71 +29,84 @@ describe('TestsContainer', () => {
     />
   ));
 
-  // TODO: Check if codes below are "clean codes"
+  beforeEach(() => {
+    jest.clearAllMocks();
 
-  function setTestEnvironment(previousId = 1, nextId = 3) {
-    dispatch.mockClear();
+    store.clearActions();
+  });
 
-    useDispatch.mockImplementation(() => dispatch);
+  beforeEach(() => {
+    useDispatch.mockImplementation(() => store.dispatch);
 
     useSelector.mockImplementation((selector) => selector({
       test: {
         type: 'question',
         content: CONTENT,
         id: currentId,
-        previousId,
-        nextId,
+        previousId: given.previousId,
+        nextId: given.nextId,
       },
       answers: {},
     }));
-  }
+  });
 
-  context('when an answer button is clicked', () => {
-    beforeEach(() => {
-      setTestEnvironment();
-    });
+  context('when not last page', () => {
+    given('previousId', () => 1);
+    given('nextId', () => 3);
 
-    it('dispatches `setAnswer`', () => {
-      const { getByText } = renderTestsContainer();
-
+    describe('click answer button', () => {
       const { id, title } = CONTENT.answers[0];
 
-      fireEvent.click(getByText(title));
+      it('dispatches `setAnswer`', () => {
+        const { getByText } = renderTestsContainer();
 
-      expect(dispatch).toBeCalledWith({
-        type: 'application/setAnswer',
-        payload: { questionId: currentId, answerId: id },
+        fireEvent.click(getByText(title));
+
+        const actions = store.getActions();
+
+        expect(actions[0])
+          .toEqual(setAnswer({ questionId: currentId, answerId: id }));
+      });
+    });
+
+    describe('click back button', () => {
+      it('dispatches `loadTest` with previous id', () => {
+        const { getByText } = renderTestsContainer();
+
+        fireEvent.click(getByText(/back/));
+
+        const actions = store.getActions();
+
+        expect(actions[0]).toEqual(setTest({ id: 1 }));
+      });
+    });
+
+    describe('click next button', () => {
+      it('dispatches `loadTest` with next id', () => {
+        const { getByText } = renderTestsContainer();
+
+        fireEvent.click(getByText(/next/));
+
+        const actions = store.getActions();
+
+        expect(actions[0]).toEqual(setTest({ id: 3 }));
       });
     });
   });
 
-  context('when `back` or `next` button is clicked', () => {
-    beforeEach(() => {
-      setTestEnvironment();
-    });
+  context('when last page', () => {
+    given('previousId', () => 4);
+    given('nextId', () => null);
 
-    it('dispatches `loadTest`', () => {
-      const { getByText } = renderTestsContainer();
+    describe('click submit button', () => {
+      it('dispatches `setTest` with null', () => {
+        const { getByText } = renderTestsContainer();
 
-      fireEvent.click(getByText(/back/));
+        fireEvent.click(getByText(/submit/));
 
-      expect(dispatch).toBeCalledTimes(1);
-    });
-  });
+        const actions = store.getActions();
 
-  context('when a `submit` button is clicked', () => {
-    beforeEach(() => {
-      setTestEnvironment(4, null);
-    });
-
-    it('dispatches `setTest` with null', () => {
-      const { getByText } = renderTestsContainer();
-
-      fireEvent.click(getByText(/submit/));
-
-      expect(dispatch).toBeCalledWith({
-        type: 'application/setTest',
-        payload: null,
+        expect(actions[0]).toEqual(setTest(null));
       });
     });
   });
