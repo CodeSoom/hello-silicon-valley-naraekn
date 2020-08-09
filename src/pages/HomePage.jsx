@@ -12,11 +12,11 @@ export default function HomePage() {
   }
 
   return (
-    <div>
+    <>
       <HomeContainer
         handleClickLink={handleClickLink}
       />
       <Link to="/about">About</Link>
-    </div>
+    </>
   );
 }

@@ -9,13 +9,11 @@ import ResultPage from './pages/ResultPage';
 
 export default function App() {
   return (
-    <div>
-      <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route path="/tests" component={TestsPage} />
-        <Route path="/about" component={AboutPage} />
-        <Route path="/result" component={ResultPage} />
-      </Switch>
-    </div>
+    <Switch>
+      <Route exact path="/" component={HomePage} />
+      <Route path="/tests" component={TestsPage} />
+      <Route path="/about" component={AboutPage} />
+      <Route path="/result" component={ResultPage} />
+    </Switch>
   );
 }
