@@ -1,9 +1,9 @@
 import React from 'react';
 
+import ResultContainer from '../containers/ResultContainer';
+
 export default function ResultPage() {
   return (
-    <div>
-      결과
-    </div>
+    <ResultContainer />
   );
 }
