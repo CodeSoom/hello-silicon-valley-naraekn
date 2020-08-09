@@ -11,6 +11,7 @@ import TestsContainer from './TestsContainer';
 import { setAnswer, setTest } from '../slice';
 
 import CONTENT from '../../fixtures/content';
+import ANSWERS from '../../fixtures/answers';
 
 jest.mock('react-redux');
 jest.mock('../services/api');
@@ -46,7 +47,7 @@ describe('TestsContainer', () => {
         previousId: given.previousId,
         nextId: given.nextId,
       },
-      answers: {},
+      answers: ANSWERS,
     }));
   });
 
@@ -99,7 +100,7 @@ describe('TestsContainer', () => {
     given('nextId', () => null);
 
     describe('click submit button', () => {
-      it('dispatches `setTest` with null', () => {
+      it('dispatches `setTest` and `loadResult`', () => {
         const { getByText } = renderTestsContainer();
 
         fireEvent.click(getByText(/submit/));

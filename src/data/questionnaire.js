@@ -1,5 +1,3 @@
-// TODO: Decide which file type is better - .json / .js
-
 const questionnaire = [
   {
     id: 1,

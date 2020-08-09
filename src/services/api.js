@@ -1,4 +1,5 @@
 import questionnaire from '../data/questionnaire';
+import scores from '../data/scores';
 
 export function getTest(testId) {
   const test = questionnaire
@@ -7,8 +8,10 @@ export function getTest(testId) {
   return test;
 }
 
-// TODO: Use getInitialTest when the user clicked `test` button in HomePage
-
 export function getInitialTest() {
   return questionnaire[0];
+}
+
+export function getScores() {
+  return scores;
 }
