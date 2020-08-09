@@ -9,6 +9,7 @@ import {
   setAnswer,
   setTest,
   loadTest,
+  loadResult,
 } from '../slice';
 
 import { get } from '../utils';
@@ -27,8 +28,9 @@ export default function TestsContainer({ handleClickLink }) {
     dispatch(loadTest(id));
   }
 
-  function handleClickSubmit() {
+  function handleClickSubmit(savedAnswers) {
     dispatch(setTest(null));
+    dispatch(loadResult(savedAnswers));
     handleClickLink('/result');
   }
 
@@ -53,7 +55,7 @@ export default function TestsContainer({ handleClickLink }) {
         previousId={previousId}
         nextId={nextId}
         handleClickNavigation={handleClickNavigation}
-        handleClickSubmit={handleClickSubmit}
+        handleClickSubmit={() => handleClickSubmit(answers)}
       />
     </>
   );

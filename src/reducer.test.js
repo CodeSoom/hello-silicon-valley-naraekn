@@ -3,6 +3,7 @@ import reducer from './reducer';
 import {
   setTest,
   setAnswer,
+  setResult,
 } from './slice';
 
 import OVERVIEW from '../fixtures/overview';
@@ -33,6 +34,21 @@ describe('reducer', () => {
       );
 
       expect(answers[questionId]).toEqual(answerId);
+    });
+  });
+
+  describe('setResult', () => {
+    it('changes a result', () => {
+      const previousState = { result: null };
+
+      const resultId = 1;
+
+      const { result } = reducer(
+        previousState,
+        setResult(resultId),
+      );
+
+      expect(result).toEqual(resultId);
     });
   });
 });
