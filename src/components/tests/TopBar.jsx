@@ -14,8 +14,8 @@ const Container = styled.div({
   width: '100%',
   maxWidth: '500px',
   height: TOP_BAR_HEIGHT,
-  background: '#F3F3F3',
-  borderBottom: '2px solid #DDD',
+  background: '#FFF',
+  boxShadow: '0 3px 3px -3px rgba(0,0,0,.2)',
   '& img': {
     height: '3em',
     position: 'absolute',
