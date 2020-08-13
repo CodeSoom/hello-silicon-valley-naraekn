@@ -21,6 +21,7 @@ module.exports = {
   },
   plugins: [
     'react',
+    'emotion',
   ],
   rules: {
     indent: ['error', 2],
