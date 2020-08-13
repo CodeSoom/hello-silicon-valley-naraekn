@@ -3,11 +3,9 @@ import React from 'react';
 import styled from '@emotion/styled';
 
 import TopBar from '../components/tests/TopBar';
-import ImageSlider from '../components/tests/ImageSlider';
-import OverviewText from '../components/tests/OverviewText';
 import BottomBar from '../components/tests/BottomBar';
-import FeedContent from '../components/tests/FeedContent';
-import InformationText from '../components/tests/InformationText';
+import QuestionText from '../components/tests/QuestionText';
+import AnswerText from '../components/tests/AnswerText';
 
 import {
   TOP_BAR_HEIGHT,
@@ -26,11 +24,8 @@ export default function TemporaryPage() {
   return (
     <Container>
       <TopBar />
-      <ImageSlider />
-      <FeedContent>
-        <OverviewText />
-        <InformationText />
-      </FeedContent>
+      <QuestionText />
+      <AnswerText />
       <BottomBar />
     </Container>
   );
