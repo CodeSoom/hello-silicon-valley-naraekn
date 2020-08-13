@@ -11,6 +11,8 @@ import App from './App';
 import QUESTION from '../fixtures/question';
 import RESULTS from '../fixtures/results';
 
+jest.mock('./assets/images');
+
 describe('App', () => {
   const dispatch = jest.fn();
 
