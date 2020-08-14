@@ -56,7 +56,7 @@ describe('TestsContainer', () => {
     given('nextId', () => 3);
 
     describe('click answer button', () => {
-      const { id, title } = CONTENT.answers[0];
+      const { id, title } = CONTENT.options[0];
 
       it('dispatches `setAnswer`', () => {
         const { getByText } = renderTestsContainer();

@@ -48,11 +48,11 @@ describe('TestContent', () => {
         selectedAnswer: null,
       });
 
-      const { content: { question, answers } } = QUESTION;
+      const { content: { question, options } } = QUESTION;
 
       expect(getByText(question)).not.toBeNull();
 
-      answers
+      options
         .forEach(({ title }) => {
           expect(getByText(title)).not.toBeNull();
         });
@@ -68,11 +68,11 @@ describe('TestContent', () => {
         selectedAnswer,
       });
 
-      const { content: { question, answers } } = QUESTION;
+      const { content: { question, options } } = QUESTION;
 
       expect(getByText(question)).not.toBeNull();
 
-      answers
+      options
         .filter(({ id }) => id === selectedAnswer)
         .forEach(({ title }) => {
           expect(getByText(`${title}(V)`)).not.toBeNull();

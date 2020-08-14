@@ -5,7 +5,7 @@ const question = {
   type: 'question',
   content: {
     question: '질문1',
-    answers: [
+    options: [
       { id: 1, title: '답1' },
       { id: 2, title: '답2' },
     ],
