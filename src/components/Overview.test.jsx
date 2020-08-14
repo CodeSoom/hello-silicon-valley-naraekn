@@ -4,6 +4,10 @@ import { render } from '@testing-library/react';
 
 import Overview from './Overview';
 
+jest.mock('../assets/images');
+
+// TODO: Modify test codes as the components structure has been changed
+
 test('Overview', () => {
   const content = {
     title: 'day',

@@ -8,6 +8,7 @@ import {
 } from './slice';
 
 import OVERVIEW from '../fixtures/overview';
+import IMAGES from '../fixtures/images';
 
 jest.mock('./assets/images');
 
@@ -26,11 +27,7 @@ describe('reducer', () => {
     it('changes current test images', () => {
       const previousState = { testImages: null };
 
-      // TODO: Make fixture
-      const images = {
-        id: 1,
-        images: { feed: [] },
-      };
+      const images = { id: 1, images: IMAGES };
 
       const { testImages } = reducer(previousState, setTestImages(images));
 

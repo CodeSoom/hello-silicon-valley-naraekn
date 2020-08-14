@@ -5,9 +5,9 @@ import results from '../data/results';
 
 export const getTest = (testId) => questionnaire.find(({ id }) => id === testId);
 
-export const getTestImages = (testId) => {
-  questionnaireImages.find(({ id }) => id === testId);
-};
+// TODO: Refactor this function
+export const getTestImages = (testId) => questionnaireImages
+  .find(({ id }) => id === testId);
 
 export const getInitialTest = () => questionnaire[0];
 

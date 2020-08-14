@@ -6,6 +6,14 @@ export function equal(key, value) {
   return (obj) => obj[key] === value;
 }
 
+export const isOverview = (type) => type === 'overview';
+
+export const isQuestion = (type) => type === 'question';
+
+export const isQuestionWithImages = (type) => (
+  type === 'question-with-images'
+);
+
 // TODO: Find a way to make the expression simpler
 export function calculateScore({ answers, scores }) {
   function addScores(accumulator, score) {

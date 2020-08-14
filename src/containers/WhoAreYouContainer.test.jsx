@@ -6,17 +6,19 @@ import { getDefaultMiddleware } from '@reduxjs/toolkit';
 import { render, fireEvent } from '@testing-library/react';
 import configureStore from 'redux-mock-store';
 
-import TestsContainer from './TestsContainer';
+import QuestionnaireContainer from './WhoAreYouContainer';
 
 import { setAnswer, setTest } from '../slice';
 
 import CONTENT from '../../fixtures/content';
 import ANSWERS from '../../fixtures/answers';
+import IMAGES from '../../fixtures/images';
 
 jest.mock('react-redux');
 jest.mock('../services/api');
+jest.mock('../assets/images');
 
-describe('TestsContainer', () => {
+describe('WhoAreYouContainer', () => {
   const currentId = 1;
 
   const handleClickLink = jest.fn();
@@ -25,7 +27,7 @@ describe('TestsContainer', () => {
   const store = mockStore({});
 
   const renderTestsContainer = () => render((
-    <TestsContainer
+    <QuestionnaireContainer
       handleClickLink={handleClickLink}
     />
   ));
@@ -47,6 +49,7 @@ describe('TestsContainer', () => {
         previousId: given.previousId,
         nextId: given.nextId,
       },
+      testImages: IMAGES,
       answers: ANSWERS,
     }));
   });

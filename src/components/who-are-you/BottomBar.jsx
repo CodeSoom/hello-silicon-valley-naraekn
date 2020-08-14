@@ -24,19 +24,24 @@ const Container = styled.div({
   borderTop: '.5px solid #DDD',
 });
 
-export default function BottomBar() {
+export default function BottomBar({
+  previousId, nextId,
+  handleClickBack, handleClickNext,
+}) {
   return (
     <Container>
-      <BackButton
-        type="button"
-      >
-        BACK
-      </BackButton>
-      <NextButton
-        type="button"
-      >
-        <span>NEXT</span>
-      </NextButton>
+      {previousId
+        && (
+          <BackButton
+            onClick={handleClickBack}
+          />
+        )}
+      {nextId
+        && (
+          <NextButton
+            onClick={handleClickNext}
+          />
+        )}
     </Container>
   );
 }

@@ -10,6 +10,7 @@ import App from './App';
 
 import QUESTION from '../fixtures/question';
 import RESULTS from '../fixtures/results';
+import IMAGES from '../fixtures/images';
 
 jest.mock('./assets/images');
 
@@ -31,6 +32,7 @@ describe('App', () => {
 
     useSelector.mockImplementation((selector) => selector({
       test: QUESTION,
+      testsImage: IMAGES,
       answers: {},
       result: RESULTS[0],
     }));
@@ -47,9 +49,9 @@ describe('App', () => {
 
   context('with path /tests', () => {
     it('renders TestsPage', () => {
-      const { container } = renderApp({ path: '/tests' });
+      renderApp({ path: '/tests' });
 
-      expect(container).toHaveTextContent(/테스트/);
+      // TODO: Add test codes
     });
   });
 

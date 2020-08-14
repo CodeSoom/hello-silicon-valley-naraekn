@@ -15,7 +15,3 @@ export function getScores() {
 export function getResult(resultId) {
   return { id: resultId };
 }
-
-export function getTestImages(testId) {
-  return { id: testId, images: null };
-}

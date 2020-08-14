@@ -2,8 +2,7 @@ import React from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import TestContent from '../components/TestContent';
-import TestNavigationButtons from '../components/TestNavigationButtons';
+import WhoAreYou from '../components/WhoAreYou';
 
 import {
   setAnswer,
@@ -14,11 +13,12 @@ import {
 
 import { get } from '../utils';
 
-export default function TestsContainer({ handleClickLink }) {
+export default function WhoAreYouContainer({ handleClickLink }) {
   const dispatch = useDispatch();
 
-  const answers = useSelector(get('answers'));
+  // TODO: const answers = useSelector(get('answers'));
   const test = useSelector(get('test'));
+  const images = useSelector(get('testImages'));
 
   function handleClickAnswer({ questionId, answerId }) {
     dispatch(setAnswer({ questionId, answerId }));
@@ -34,28 +34,18 @@ export default function TestsContainer({ handleClickLink }) {
     handleClickLink('/result');
   }
 
-  const {
-    id, previousId, nextId, type, content,
-  } = test;
+  // TODO: const { id } = test;
 
-  const selectedAnswer = answers[id] || null;
-
-  // TODO: Too many props - Find a way to reduce a number of props
+  // TODO: const selectedAnswer = answers[id] || null;
 
   return (
     <>
-      <TestContent
-        id={id}
-        type={type}
-        content={content}
-        selectedAnswer={selectedAnswer}
+      <WhoAreYou
+        test={test}
+        images={images}
         handleClickAnswer={handleClickAnswer}
-      />
-      <TestNavigationButtons
-        previousId={previousId}
-        nextId={nextId}
         handleClickNavigation={handleClickNavigation}
-        handleClickSubmit={() => handleClickSubmit(answers)}
+        handleClickSubmit={handleClickSubmit}
       />
     </>
   );

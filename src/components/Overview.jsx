@@ -1,16 +1,32 @@
 import React from 'react';
 
-export default function Overview({ content }) {
-  const { title, explanation } = content;
+import ImageSlider from './who-are-you/ImageSlider';
+import OverviewText from './who-are-you/OverviewText';
+import TipsText from './who-are-you/TipsText';
+
+import { FeedContent } from '../styles/feed';
+
+export default function Overview({
+  content, images,
+}) {
+  const { title, explanation, tips } = content;
+
+  const { feeds } = images;
 
   return (
     <>
-      <h2>
-        {title}
-      </h2>
-      <div>
-        {explanation}
-      </div>
+      <ImageSlider
+        feeds={feeds}
+      />
+      <FeedContent>
+        <OverviewText
+          title={title}
+          explanation={explanation}
+        />
+        <TipsText
+          tips={tips}
+        />
+      </FeedContent>
     </>
   );
 }
