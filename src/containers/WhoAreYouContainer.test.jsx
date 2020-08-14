@@ -6,7 +6,7 @@ import { getDefaultMiddleware } from '@reduxjs/toolkit';
 import { render, fireEvent } from '@testing-library/react';
 import configureStore from 'redux-mock-store';
 
-import QuestionnaireContainer from './WhoAreYouContainer';
+import WhoAreYouContainer from './WhoAreYouContainer';
 
 import { setAnswer, setTest } from '../slice';
 
@@ -26,8 +26,8 @@ describe('WhoAreYouContainer', () => {
   const mockStore = configureStore(getDefaultMiddleware());
   const store = mockStore({});
 
-  const renderTestsContainer = () => render((
-    <QuestionnaireContainer
+  const renderWhoAreYouContainer = () => render((
+    <WhoAreYouContainer
       handleClickLink={handleClickLink}
     />
   ));
@@ -54,15 +54,15 @@ describe('WhoAreYouContainer', () => {
     }));
   });
 
-  context('when not last page', () => {
+  context('when not on the last page', () => {
     given('previousId', () => 1);
     given('nextId', () => 3);
 
-    describe('click answer button', () => {
+    describe('the clicked answer button ', () => {
       const { id, title } = CONTENT.options[0];
 
       it('dispatches `setAnswer`', () => {
-        const { getByText } = renderTestsContainer();
+        const { getByText } = renderWhoAreYouContainer();
 
         fireEvent.click(getByText(title));
 
@@ -73,11 +73,11 @@ describe('WhoAreYouContainer', () => {
       });
     });
 
-    describe('click back button', () => {
+    describe('the clicked back button', () => {
       it('dispatches `loadTest` with previous id', () => {
-        const { getByText } = renderTestsContainer();
+        const { getByText } = renderWhoAreYouContainer();
 
-        fireEvent.click(getByText(/back/));
+        fireEvent.click(getByText(/BACK/));
 
         const actions = store.getActions();
 
@@ -85,11 +85,11 @@ describe('WhoAreYouContainer', () => {
       });
     });
 
-    describe('click next button', () => {
+    describe('the clicked next button', () => {
       it('dispatches `loadTest` with next id', () => {
-        const { getByText } = renderTestsContainer();
+        const { getByText } = renderWhoAreYouContainer();
 
-        fireEvent.click(getByText(/next/));
+        fireEvent.click(getByText(/NEXT/));
 
         const actions = store.getActions();
 
@@ -98,15 +98,15 @@ describe('WhoAreYouContainer', () => {
     });
   });
 
-  context('when last page', () => {
+  context('when not on the last page', () => {
     given('previousId', () => 4);
     given('nextId', () => null);
 
-    describe('click submit button', () => {
+    describe('the clicked next button', () => {
       it('dispatches `setTest` and `loadResult`', () => {
-        const { getByText } = renderTestsContainer();
+        const { getByText } = renderWhoAreYouContainer();
 
-        fireEvent.click(getByText(/submit/));
+        fireEvent.click(getByText(/NEXT/));
 
         const actions = store.getActions();
 

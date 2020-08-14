@@ -25,8 +25,7 @@ const Container = styled.div({
 });
 
 export default function BottomBar({
-  previousId, nextId,
-  handleClickBack, handleClickNext,
+  previousId, handleClickBack, handleClickNext,
 }) {
   return (
     <Container>
@@ -36,12 +35,9 @@ export default function BottomBar({
             onClick={handleClickBack}
           />
         )}
-      {nextId
-        && (
-          <NextButton
-            onClick={handleClickNext}
-          />
-        )}
+      <NextButton
+        onClick={handleClickNext}
+      />
     </Container>
   );
 }

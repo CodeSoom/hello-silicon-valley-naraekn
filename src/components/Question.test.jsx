@@ -4,31 +4,33 @@ import { render, fireEvent } from '@testing-library/react';
 
 import Question from './Question';
 
-import content from '../../fixtures/content';
+import CONTENT from '../../fixtures/content';
+import IMAGES from '../../fixtures/images';
 
 jest.mock('../assets/images');
-
-// TODO: Modify test codes as the components structure has been changed
 
 describe('Question', () => {
   const handleClickAnswer = jest.fn();
 
-  const { question, options } = content;
+  const { title, question, options } = CONTENT;
 
   const renderQuestion = () => render((
     <Question
-      content={content}
+      content={CONTENT}
+      images={IMAGES}
       handleClickAnswer={handleClickAnswer}
     />
   ));
 
-  it('renders question and options', () => {
+  it('renders title, question and options', () => {
     const { getByText } = renderQuestion();
+
+    expect(getByText(title)).not.toBeNull();
 
     expect(getByText(question)).not.toBeNull();
 
-    options.forEach(({ title }) => {
-      expect(getByText(title)).not.toBeNull();
+    options.forEach((option) => {
+      expect(getByText(option.title)).not.toBeNull();
     });
   });
 
@@ -36,10 +38,8 @@ describe('Question', () => {
     it('occurs handleClick', () => {
       const { getByText } = renderQuestion();
 
-      options.forEach((answer) => {
-        const { title } = answer;
-
-        fireEvent.click(getByText(title));
+      options.forEach((option) => {
+        fireEvent.click(getByText(option.title));
 
         expect(handleClickAnswer).toBeCalled();
       });

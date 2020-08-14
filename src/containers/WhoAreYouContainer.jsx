@@ -16,11 +16,11 @@ import { get } from '../utils';
 export default function WhoAreYouContainer({ handleClickLink }) {
   const dispatch = useDispatch();
 
-  // TODO: const answers = useSelector(get('answers'));
+  const answers = useSelector(get('answers'));
   const test = useSelector(get('test'));
   const images = useSelector(get('testImages'));
 
-  function handleClickAnswer({ questionId, answerId }) {
+  function handleClickOption({ questionId, answerId }) {
     dispatch(setAnswer({ questionId, answerId }));
   }
 
@@ -43,9 +43,9 @@ export default function WhoAreYouContainer({ handleClickLink }) {
       <WhoAreYou
         test={test}
         images={images}
-        handleClickAnswer={handleClickAnswer}
+        handleClickOption={handleClickOption}
         handleClickNavigation={handleClickNavigation}
-        handleClickSubmit={handleClickSubmit}
+        handleClickSubmit={() => handleClickSubmit(answers)}
       />
     </>
   );
