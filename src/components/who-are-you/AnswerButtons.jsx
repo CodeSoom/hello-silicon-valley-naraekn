@@ -40,11 +40,13 @@ export default function AnswerButtons({
   return (
     <>
       {
-        options.map(({ id, title }, index) => (
-          <Container key={id}>
-            <Button onClick={handleClick}>
+        options.map((option, index) => (
+          <Container key={option.id}>
+            <Button
+              onClick={() => handleClick(option.id)}
+            >
               <ProfileImage src={profiles[index]} />
-              {title}
+              {option.title}
               <Icon className="material-icons">
                 favorite_border
               </Icon>

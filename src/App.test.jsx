@@ -32,7 +32,7 @@ describe('App', () => {
 
     useSelector.mockImplementation((selector) => selector({
       test: QUESTION,
-      testsImage: IMAGES,
+      testImages: IMAGES,
       answers: {},
       result: RESULTS[0],
     }));
@@ -47,13 +47,13 @@ describe('App', () => {
     });
   });
 
-  context('with path /tests', () => {
-    it('renders TestsPage', () => {
-      renderApp({ path: '/tests' });
+  // context('with path /tests', () => {
+  //   it('renders TestsPage', () => {
+  //     renderApp({ path: '/tests' });
 
-      // TODO: Add test codes
-    });
-  });
+  //     // TODO: Add test codes
+  //   });
+  // });
 
   context('with path /about', () => {
     it('renders AboutPage', () => {

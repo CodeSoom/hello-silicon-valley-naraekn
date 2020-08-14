@@ -14,18 +14,21 @@ import {
 
 import { FeedContainer } from '../styles/feed';
 
-// TODO: Find a substitute for the word `tests`
 // TODO: Too many props
 // TODO: Add `selectedAnswer`
 
 export default function WhoAreYou({
   test, images,
-  handleClickAnswer, handleClickNavigation, handleClickSubmit,
+  handleClickOption, handleClickNavigation, handleClickSubmit,
 }) {
   const {
-    previousId, nextId,
-    type, content,
+    id, previousId, nextId, type, content,
   } = test;
+
+  const handleClickAnswer = (answerId) => handleClickOption({
+    questionId: id,
+    answerId,
+  });
 
   const handleClickBack = () => handleClickNavigation(previousId);
 
@@ -64,7 +67,6 @@ export default function WhoAreYou({
       }
       <BottomBar
         previousId={previousId}
-        nextId={nextId}
         handleClickBack={handleClickBack}
         handleClickNext={handleClickNext}
       />

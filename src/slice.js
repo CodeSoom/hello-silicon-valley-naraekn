@@ -82,8 +82,6 @@ export function loadInitialTest() {
   };
 }
 
-// TODO: Check if the function below is too complicated
-
 export function loadResult(answers) {
   return (dispatch) => {
     const scores = getScores();

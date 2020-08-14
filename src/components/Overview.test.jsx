@@ -4,23 +4,26 @@ import { render } from '@testing-library/react';
 
 import Overview from './Overview';
 
+import OVERVIEW from '../../fixtures/overview';
+import IMAGES from '../../fixtures/images';
+
 jest.mock('../assets/images');
 
-// TODO: Modify test codes as the components structure has been changed
-
 test('Overview', () => {
-  const content = {
-    title: 'day',
-    explanation: '설명설명',
-  };
+  const { content } = OVERVIEW;
 
   const { getByText } = render((
     <Overview
       content={content}
+      images={IMAGES}
     />
   ));
 
   expect(getByText(content.title)).not.toBeNull();
 
   expect(getByText(content.explanation)).not.toBeNull();
+
+  content.tips.forEach((tip) => {
+    expect(getByText(tip)).not.toBeNull();
+  });
 });

@@ -6,6 +6,7 @@ const overview = {
   content: {
     title: '제목',
     explanation: '설명',
+    tips: ['tip1', 'tip2'],
   },
 };
 
