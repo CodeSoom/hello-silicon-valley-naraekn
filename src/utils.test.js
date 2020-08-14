@@ -1,6 +1,9 @@
 import {
   get,
   equal,
+  isOverview,
+  isQuestion,
+  isQuestionWithImages,
   calculateScore,
   findTopScore,
 } from './utils';
@@ -27,6 +30,30 @@ test('equal', () => {
 
   expect(f(state)).toBeTruthy();
   expect(g(state)).toBeFalsy();
+});
+
+test('isOverview', () => {
+  const trueResult = isOverview('overview');
+  const falseResult = isOverview('somethingWrong');
+
+  expect(trueResult).toBeTruthy();
+  expect(falseResult).toBeFalsy();
+});
+
+test('isQuestion', () => {
+  const trueResult = isQuestion('question');
+  const falseResult = isQuestion('somethingWrong');
+
+  expect(trueResult).toBeTruthy();
+  expect(falseResult).toBeFalsy();
+});
+
+test('isQuestionWithImages', () => {
+  const trueResult = isQuestionWithImages('question-with-images');
+  const falseResult = isQuestionWithImages('somethingWrong');
+
+  expect(trueResult).toBeTruthy();
+  expect(falseResult).toBeFalsy();
 });
 
 test('calculateScore', () => {

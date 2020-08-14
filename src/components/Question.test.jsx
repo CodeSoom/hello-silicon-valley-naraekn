@@ -6,6 +6,10 @@ import Question from './Question';
 
 import content from '../../fixtures/content';
 
+jest.mock('../assets/images');
+
+// TODO: Modify test codes as the components structure has been changed
+
 describe('Question', () => {
   const handleClickAnswer = jest.fn();
 

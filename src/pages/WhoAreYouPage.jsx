@@ -2,9 +2,9 @@ import React from 'react';
 
 import { useHistory } from 'react-router-dom';
 
-import TestContainer from '../containers/TestsContainer';
+import WhoAreYouContainer from '../containers/WhoAreYouContainer';
 
-export default function TestsPage() {
+export default function WhoAreYouPage() {
   const history = useHistory();
 
   function handleClickLink(url) {
@@ -13,8 +13,7 @@ export default function TestsPage() {
 
   return ((
     <>
-      <h1>테스트</h1>
-      <TestContainer
+      <WhoAreYouContainer
         handleClickLink={handleClickLink}
       />
     </>

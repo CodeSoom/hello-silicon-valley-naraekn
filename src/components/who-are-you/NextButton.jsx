@@ -5,6 +5,7 @@ import styled from '@emotion/styled';
 import { MAIN_GRADIENT_COLOR } from '../../styles/constants';
 
 const GradientButton = styled.button({
+  float: 'right',
   height: '3em',
   width: '8em',
   border: 0,
@@ -42,9 +43,12 @@ const Icon = styled.i({
   fontSize: '1em',
 });
 
-export default function NextButton() {
+export default function NextButton({ onClick }) {
   return (
-    <GradientButton>
+    <GradientButton
+      type="button"
+      onClick={onClick}
+    >
       <div>
         <span>NEXT</span>
         <Icon className="material-icons">

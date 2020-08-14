@@ -6,13 +6,13 @@ import {
   getScores,
   getResult,
   getInitialTestImages,
+  getTestImages,
 } from './services/api';
 
 import {
   calculateScore,
   findTopScore,
 } from './utils';
-import { getTestImages } from './services/__mocks__/api';
 
 const { actions, reducer } = createSlice({
   name: 'application',
@@ -65,20 +65,20 @@ export const {
 export function loadTest(id) {
   return (dispatch) => {
     const test = getTest(id);
-    const testImages = getTestImages(id);
+    const { images } = getTestImages(id);
 
     dispatch(setTest(test));
-    dispatch(setTestImages(testImages));
+    dispatch(setTestImages(images));
   };
 }
 
 export function loadInitialTest() {
   return (dispatch) => {
     const test = getInitialTest();
-    const testImages = getInitialTestImages();
+    const { images } = getInitialTestImages();
 
     dispatch(setTest(test));
-    dispatch(setTestImages(testImages));
+    dispatch(setTestImages(images));
   };
 }
 

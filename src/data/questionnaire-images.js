@@ -9,7 +9,7 @@ const questionnaireImages = [
   {
     id: 1,
     images: {
-      feed: [
+      feeds: [
         ExampleImage1,
         ExampleImage2,
         ExampleImage3,
@@ -19,12 +19,19 @@ const questionnaireImages = [
   },
   {
     id: 2,
-    images: null,
+    images: {
+      profiles: [
+        ExampleImage1,
+        ExampleImage2,
+        ExampleImage3,
+        ExampleImage4,
+      ],
+    },
   },
   {
     id: 3,
     images: {
-      feed: [
+      feeds: [
         ExampleImage1,
         ExampleImage2,
         ExampleImage3,
@@ -41,7 +48,7 @@ const questionnaireImages = [
   {
     id: 4,
     images: {
-      feed: [
+      feeds: [
         ExampleImage1,
         ExampleImage2,
         ExampleImage3,
@@ -51,7 +58,14 @@ const questionnaireImages = [
   },
   {
     id: 5,
-    images: null,
+    images: {
+      profiles: [
+        ExampleImage1,
+        ExampleImage2,
+        ExampleImage3,
+        ExampleImage4,
+      ],
+    },
   },
 ];
 

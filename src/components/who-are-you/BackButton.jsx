@@ -4,6 +4,7 @@ import styled from '@emotion/styled';
 
 const Button = styled.button({
   display: 'flex',
+  float: 'left',
   height: '3em',
   width: '8em',
   border: 0,
@@ -24,9 +25,12 @@ const Icon = styled.i({
   fontSize: '1em',
 });
 
-export default function BackButton() {
+export default function BackButton({ onClick }) {
   return (
-    <Button>
+    <Button
+      type="button"
+      onClick={onClick}
+    >
       <Icon className="material-icons">
         arrow_back_ios
       </Icon>

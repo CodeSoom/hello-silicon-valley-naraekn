@@ -19,15 +19,7 @@ const Icon = styled.i({
   color: ACCENT_COLOR,
 });
 
-// TODO: This should be removed later
-const title = 'Question1';
-const content = `
-샌프란시스코의 Golden Gate Bridge 에서 우연히 만난 이상형. 
-당장이라도 사랑에 빠질 것 같아요 ! 
-그 사람은 어떤 스타일일까요 ?
-`;
-
-export default function QuestionText() {
+export default function QuestionText({ title, question }) {
   return (
     <Container>
       <Title>{title}</Title>
@@ -35,7 +27,7 @@ export default function QuestionText() {
         verified
       </Icon>
       <div>
-        {content}
+        {question}
       </div>
     </Container>
   );
