@@ -9,6 +9,7 @@ import TestsPage from './TestsPage';
 import QUESTION from '../../fixtures/question';
 
 jest.mock('react-redux');
+jest.mock('../assets/images');
 
 test('TestsPage', () => {
   useSelector.mockImplementation((selector) => selector({

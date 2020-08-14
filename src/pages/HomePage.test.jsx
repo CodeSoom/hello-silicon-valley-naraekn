@@ -6,6 +6,8 @@ import { MemoryRouter } from 'react-router-dom';
 
 import HomePage from './HomePage';
 
+jest.mock('../assets/images');
+
 test('HomePage', () => {
   const { getByText } = render((
     <MemoryRouter>

@@ -6,6 +6,8 @@ import { useDispatch } from 'react-redux';
 
 import HomeContainer from './HomeContainer';
 
+jest.mock('../assets/images');
+
 test('HomeContainer', () => {
   const dispatch = jest.fn();
   const handleClickLink = jest.fn();
