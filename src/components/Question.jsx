@@ -3,7 +3,7 @@ import React from 'react';
 export default function Question({
   id, content, selectedAnswer, handleClickAnswer,
 }) {
-  const { question, answers } = content;
+  const { question, options } = content;
 
   const isSelected = (index) => index === selectedAnswer;
 
@@ -19,7 +19,7 @@ export default function Question({
       </h1>
       <div>
         {
-          answers.map((answer) => (
+          options.map((answer) => (
             <button
               key={answer.id}
               type="button"

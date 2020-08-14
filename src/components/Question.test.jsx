@@ -9,7 +9,7 @@ import content from '../../fixtures/content';
 describe('Question', () => {
   const handleClickAnswer = jest.fn();
 
-  const { question, answers } = content;
+  const { question, options } = content;
 
   const renderQuestion = () => render((
     <Question
@@ -18,12 +18,12 @@ describe('Question', () => {
     />
   ));
 
-  it('renders question and answers', () => {
+  it('renders question and options', () => {
     const { getByText } = renderQuestion();
 
     expect(getByText(question)).not.toBeNull();
 
-    answers.forEach(({ title }) => {
+    options.forEach(({ title }) => {
       expect(getByText(title)).not.toBeNull();
     });
   });
@@ -32,7 +32,7 @@ describe('Question', () => {
     it('occurs handleClick', () => {
       const { getByText } = renderQuestion();
 
-      answers.forEach((answer) => {
+      options.forEach((answer) => {
         const { title } = answer;
 
         fireEvent.click(getByText(title));
