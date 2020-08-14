@@ -5,17 +5,20 @@ import {
   getInitialTest,
   getScores,
   getResult,
+  getInitialTestImages,
 } from './services/api';
 
 import {
   calculateScore,
   findTopScore,
 } from './utils';
+import { getTestImages } from './services/__mocks__/api';
 
 const { actions, reducer } = createSlice({
   name: 'application',
   initialState: {
     test: null,
+    testImages: null,
     answers: {},
     result: null,
   },
@@ -24,6 +27,12 @@ const { actions, reducer } = createSlice({
       return {
         ...state,
         test,
+      };
+    },
+    setTestImages(state, { payload: testImages }) {
+      return {
+        ...state,
+        testImages,
       };
     },
     setAnswer(state, { payload: { questionId, answerId } }) {
@@ -48,6 +57,7 @@ const { actions, reducer } = createSlice({
 
 export const {
   setTest,
+  setTestImages,
   setAnswer,
   setResult,
 } = actions;
@@ -55,16 +65,20 @@ export const {
 export function loadTest(id) {
   return (dispatch) => {
     const test = getTest(id);
+    const testImages = getTestImages(id);
 
     dispatch(setTest(test));
+    dispatch(setTestImages(testImages));
   };
 }
 
 export function loadInitialTest() {
   return (dispatch) => {
     const test = getInitialTest();
+    const testImages = getInitialTestImages();
 
     dispatch(setTest(test));
+    dispatch(setTestImages(testImages));
   };
 }
 

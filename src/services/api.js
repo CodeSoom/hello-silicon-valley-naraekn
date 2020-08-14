@@ -1,25 +1,18 @@
 import questionnaire from '../data/questionnaire';
+import questionnaireImages from '../data/questionnaire-images';
 import scores from '../data/scores';
 import results from '../data/results';
 
-export function getTest(testId) {
-  const test = questionnaire
-    .find(({ id }) => id === testId);
+export const getTest = (testId) => questionnaire.find(({ id }) => id === testId);
 
-  return test;
-}
+export const getTestImages = (testId) => {
+  questionnaireImages.find(({ id }) => id === testId);
+};
 
-export function getInitialTest() {
-  return questionnaire[0];
-}
+export const getInitialTest = () => questionnaire[0];
 
-export function getScores() {
-  return scores;
-}
+export const getInitialTestImages = () => questionnaireImages[0];
 
-export function getResult(resultId) {
-  const result = results
-    .find(({ id }) => id === resultId);
+export const getScores = () => scores;
 
-  return result;
-}
+export const getResult = (resultId) => results.find(({ id }) => id === resultId);

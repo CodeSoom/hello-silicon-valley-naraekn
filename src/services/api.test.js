@@ -6,6 +6,8 @@ import {
 // TODO: Make an api test more meaningful
 // TODO: Add a test for getScore
 
+jest.mock('../assets/images');
+
 describe('api', () => {
   describe('getTest', () => {
     it('returns question or overview', () => {
