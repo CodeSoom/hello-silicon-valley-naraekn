@@ -3,16 +3,20 @@ import questionnaireImages from '../data/questionnaire-images';
 import scores from '../data/scores';
 import results from '../data/results';
 
-export const getTest = (testId) => questionnaire.find(({ id }) => id === testId);
+export const getTest = (id) => questionnaire.find((test) => id === test.id);
 
-// TODO: Refactor this function
-export const getTestImages = (testId) => questionnaireImages
-  .find(({ id }) => id === testId);
+export const getTestImages = (id) => {
+  const { images } = questionnaireImages.find(
+    (questionnaireImage) => questionnaireImage.id === id,
+  );
+
+  return images;
+};
 
 export const getInitialTest = () => questionnaire[0];
 
-export const getInitialTestImages = () => questionnaireImages[0];
+export const getInitialTestImages = () => questionnaireImages[0].images;
 
 export const getScores = () => scores;
 
-export const getResult = (resultId) => results.find(({ id }) => id === resultId);
+export const getResult = (id) => results.find((result) => id === result.id);

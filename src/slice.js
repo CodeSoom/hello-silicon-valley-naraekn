@@ -65,7 +65,7 @@ export const {
 export function loadTest(id) {
   return (dispatch) => {
     const test = getTest(id);
-    const { images } = getTestImages(id);
+    const images = getTestImages(id);
 
     dispatch(setTest(test));
     dispatch(setTestImages(images));
@@ -75,7 +75,7 @@ export function loadTest(id) {
 export function loadInitialTest() {
   return (dispatch) => {
     const test = getInitialTest();
-    const { images } = getInitialTestImages();
+    const images = getInitialTestImages();
 
     dispatch(setTest(test));
     dispatch(setTestImages(images));
