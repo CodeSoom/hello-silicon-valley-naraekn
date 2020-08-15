@@ -14,6 +14,7 @@ const Button = styled.button({
   backgroundColor: 'transparent',
   alignItems: 'center',
   justifyContent: 'space-around',
+  outline: 'none',
   '&:hover': {
     color: '#FFF',
     backgroundColor: '#AAA',

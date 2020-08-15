@@ -19,7 +19,7 @@ jest.mock('../services/api');
 jest.mock('../assets/images');
 
 describe('WhoAreYouContainer', () => {
-  const currentId = 1;
+  const currentId = 2;
 
   const handleClickLink = jest.fn();
 

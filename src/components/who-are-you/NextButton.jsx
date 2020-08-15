@@ -2,9 +2,12 @@ import React from 'react';
 
 import styled from '@emotion/styled';
 
-import { MAIN_GRADIENT_COLOR } from '../../styles/constants';
+import {
+  MAIN_GRADIENT_COLOR,
+  GRAY_GRADIENT_COLOR,
+} from '../../styles/constants';
 
-const GradientButton = styled.button({
+const GradientButton = styled.button(({ disabled }) => ({
   float: 'right',
   height: '3em',
   width: '8em',
@@ -13,10 +16,11 @@ const GradientButton = styled.button({
   color: '#333',
   fontWeight: 'bold',
   padding: '.4em',
+  outline: 'none',
   backgroundImage: `linear-gradient(
     60deg, 
-    ${MAIN_GRADIENT_COLOR[0]}, 
-    ${MAIN_GRADIENT_COLOR[1]}
+    ${disabled ? GRAY_GRADIENT_COLOR[0] : MAIN_GRADIENT_COLOR[0]}, 
+    ${disabled ? GRAY_GRADIENT_COLOR[1] : MAIN_GRADIENT_COLOR[1]}
   )`,
   '& div': {
     display: 'flex',
@@ -37,17 +41,18 @@ const GradientButton = styled.button({
       backgroundColor: 'transparent',
     },
   },
-});
+}));
 
 const Icon = styled.i({
   fontSize: '1em',
 });
 
-export default function NextButton({ onClick }) {
+export default function NextButton({ onClick, disabled }) {
   return (
     <GradientButton
       type="button"
       onClick={onClick}
+      disabled={disabled}
     >
       <div>
         <span>NEXT</span>

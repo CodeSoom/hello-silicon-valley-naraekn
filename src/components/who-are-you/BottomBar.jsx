@@ -9,7 +9,7 @@ import {
   BOTTOM_BAR_HEIGHT,
 } from '../../styles/constants';
 
-const Container = styled.div({
+const Container = styled.div(({ isFirstPage }) => ({
   zIndex: 10000,
   position: 'fixed',
   bottom: 0,
@@ -18,17 +18,19 @@ const Container = styled.div({
   padding: '1em',
   display: 'flex',
   alignItems: 'center',
-  justifyContent: 'space-between',
+  justifyContent: isFirstPage
+    ? 'flex-end'
+    : 'space-between',
   height: BOTTOM_BAR_HEIGHT,
   background: '#F8F8F8',
   borderTop: '.5px solid #DDD',
-});
+}));
 
 export default function BottomBar({
-  previousId, handleClickBack, handleClickNext,
+  previousId, disabled, handleClickBack, handleClickNext,
 }) {
   return (
-    <Container>
+    <Container isFirstPage={previousId === null}>
       {previousId
         && (
           <BackButton
@@ -37,6 +39,7 @@ export default function BottomBar({
         )}
       <NextButton
         onClick={handleClickNext}
+        disabled={disabled}
       />
     </Container>
   );

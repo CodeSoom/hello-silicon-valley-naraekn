@@ -2,6 +2,8 @@ import React from 'react';
 
 import styled from '@emotion/styled';
 
+import { ACCENT_COLOR } from '../../styles/constants';
+
 const Container = styled.div({
   padding: '2em',
   borderBottom: '.5px solid #F5F5F5',
@@ -15,6 +17,7 @@ const Button = styled.button({
   fontSize: '1em',
   borderColor: 'transparent',
   backgroundColor: 'transparent',
+  outline: 'none',
 });
 
 const ProfileImage = styled.img({
@@ -25,18 +28,17 @@ const ProfileImage = styled.img({
   borderRadius: '50%',
 });
 
-// TODO: If the user click button,
-// show favorite icon colored with ACCENT_COLOR
-
-const Icon = styled.i({
+const Icon = styled.i(({ selected }) => ({
   float: 'right',
   margin: 'auto 0 auto 1em',
-  color: '#5F5457',
-});
+  color: selected ? ACCENT_COLOR : '#5F5457',
+}));
 
 export default function AnswerButtons({
-  options, profiles, handleClick,
+  options, profiles, selectedAnswer, handleClick,
 }) {
+  const isSelected = (id) => id === selectedAnswer;
+
   return (
     <>
       {
@@ -47,9 +49,26 @@ export default function AnswerButtons({
             >
               <ProfileImage src={profiles[index]} />
               {option.title}
-              <Icon className="material-icons">
-                favorite_border
-              </Icon>
+              {
+                isSelected(option.id)
+                  ? (
+                    <Icon
+                      className="material-icons"
+                      selected={isSelected(option.id)}
+                    >
+                      favorite
+                    </Icon>
+                  )
+                  : (
+                    <Icon
+                      className="material-icons"
+                      selected={isSelected(option.id)}
+                    >
+                      favorite_border
+                    </Icon>
+                  )
+              }
+
             </Button>
           </Container>
         ))
