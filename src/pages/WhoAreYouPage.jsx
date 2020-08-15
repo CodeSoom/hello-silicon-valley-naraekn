@@ -11,11 +11,7 @@ export default function WhoAreYouPage() {
     history.push(url);
   }
 
-  return ((
-    <>
-      <WhoAreYouContainer
-        handleClickLink={handleClickLink}
-      />
-    </>
-  ));
+  return (
+    <WhoAreYouContainer handleClickLink={handleClickLink} />
+  );
 }
