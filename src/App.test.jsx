@@ -47,14 +47,6 @@ describe('App', () => {
     });
   });
 
-  // context('with path /tests', () => {
-  //   it('renders TestsPage', () => {
-  //     renderApp({ path: '/tests' });
-
-  //     // TODO: Add test codes
-  //   });
-  // });
-
   context('with path /about', () => {
     it('renders AboutPage', () => {
       const { container } = renderApp({ path: '/about' });
