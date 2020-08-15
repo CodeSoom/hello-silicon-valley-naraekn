@@ -15,10 +15,9 @@ import {
 import { FeedContainer } from '../styles/feed';
 
 // TODO: Too many props
-// TODO: Add `selectedAnswer`
 
 export default function WhoAreYou({
-  test, images,
+  test, images, selectedAnswer,
   handleClickOption, handleClickNavigation, handleClickSubmit,
 }) {
   const {
@@ -36,6 +35,8 @@ export default function WhoAreYou({
     ? (() => handleClickSubmit())
     : (() => handleClickNavigation(nextId));
 
+  const isNextButtonDisabled = (selectedAnswer === null) && (type !== 'overview');
+
   return (
     <FeedContainer>
       <TopBar />
@@ -52,6 +53,7 @@ export default function WhoAreYou({
           <Question
             content={content}
             images={images}
+            selectedAnswer={selectedAnswer}
             handleClickAnswer={handleClickAnswer}
           />
         )
@@ -61,12 +63,14 @@ export default function WhoAreYou({
           <QuestionWithImages
             content={content}
             images={images}
+            selectedAnswer={selectedAnswer}
             handleClickAnswer={handleClickAnswer}
           />
         )
       }
       <BottomBar
         previousId={previousId}
+        disabled={isNextButtonDisabled}
         handleClickBack={handleClickBack}
         handleClickNext={handleClickNext}
       />

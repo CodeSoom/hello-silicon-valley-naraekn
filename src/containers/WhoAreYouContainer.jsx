@@ -34,15 +34,16 @@ export default function WhoAreYouContainer({ handleClickLink }) {
     handleClickLink('/result');
   }
 
-  // TODO: const { id } = test;
+  const { id } = test;
 
-  // TODO: const selectedAnswer = answers[id] || null;
+  const selectedAnswer = answers[id] || null;
 
   return (
     <>
       <WhoAreYou
         test={test}
         images={images}
+        selectedAnswer={selectedAnswer}
         handleClickOption={handleClickOption}
         handleClickNavigation={handleClickNavigation}
         handleClickSubmit={() => handleClickSubmit(answers)}

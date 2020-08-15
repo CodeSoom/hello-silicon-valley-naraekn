@@ -19,6 +19,7 @@ describe('WhoAreYou', () => {
     <WhoAreYou
       test={given.test}
       images={IMAGES}
+      selectedAnswer={1}
       handleClickAnswer={handleClickOption}
       handleClickNavigation={handleClickNavigation}
       handleClickSubmit={handleClickSubmit}
@@ -103,7 +104,7 @@ describe('WhoAreYou', () => {
   });
 
   describe('A next button in BottomBar', () => {
-    context('when the last test page', () => {
+    context('when the answer is selected on the last page', () => {
       given('test', () => ({
         ...QUESTION,
         nextId: null,
@@ -118,7 +119,7 @@ describe('WhoAreYou', () => {
       });
     });
 
-    context('when not on the last page', () => {
+    context('when the answer is selected not on the last page', () => {
       given('test', () => QUESTION);
 
       it('occurs `handleClickNavigation`', () => {

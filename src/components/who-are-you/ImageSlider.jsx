@@ -14,6 +14,7 @@ export default function ImageSlider({ feeds }) {
       <Slider
         infinite
         dots
+        arrows={false}
         speed={500}
         slidesToShow={1}
         slidesToScroll={1}

@@ -5,7 +5,7 @@ import QuestionText from './who-are-you/QuestionText';
 import AnswerButtons from './who-are-you/AnswerButtons';
 
 export default function QuestionWithImages({
-  content, images, handleClickAnswer,
+  content, images, selectedAnswer, handleClickAnswer,
 }) {
   const { title, question, options } = content;
   const { feeds, profiles } = images;
@@ -22,6 +22,7 @@ export default function QuestionWithImages({
       <AnswerButtons
         options={options}
         profiles={profiles}
+        selectedAnswer={selectedAnswer}
         handleClick={handleClickAnswer}
       />
     </>

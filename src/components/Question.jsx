@@ -4,7 +4,7 @@ import QuestionText from './who-are-you/QuestionText';
 import AnswerButtons from './who-are-you/AnswerButtons';
 
 export default function Question({
-  content, images, handleClickAnswer,
+  content, images, selectedAnswer, handleClickAnswer,
 }) {
   const { title, question, options } = content;
 
@@ -19,6 +19,7 @@ export default function Question({
       <AnswerButtons
         options={options}
         profiles={profiles}
+        selectedAnswer={selectedAnswer}
         handleClick={handleClickAnswer}
       />
     </>
