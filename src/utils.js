@@ -10,10 +10,6 @@ export const isOverview = (type) => type === 'overview';
 
 export const isQuestion = (type) => type === 'question';
 
-export const isQuestionWithImages = (type) => (
-  type === 'question-with-images'
-);
-
 export const isNextButtonDisabled = (selected, type) => (
   (selected === null) && (type === 'question')
 );
