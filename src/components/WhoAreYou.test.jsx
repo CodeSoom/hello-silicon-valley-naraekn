@@ -63,28 +63,6 @@ describe('WhoAreYou', () => {
   });
 
   context('when type is `question-with-images`', () => {
-    given('test', () => ({
-      ...QUESTION,
-      type: 'question-with-images',
-    }));
-
-    it('renders question', () => {
-      const { getByText } = renderWhoAreYou();
-
-      const { content: { title, question, options } } = QUESTION;
-
-      expect(getByText(title)).not.toBeNull();
-
-      expect(getByText(question)).not.toBeNull();
-
-      options
-        .forEach((option) => {
-          expect(getByText(option.title)).not.toBeNull();
-        });
-    });
-  });
-
-  context('when type is `question-with-images`', () => {
     given('test', () => QUESTION);
 
     it('renders question', () => {
