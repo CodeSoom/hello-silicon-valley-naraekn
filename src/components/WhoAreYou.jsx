@@ -10,6 +10,7 @@ import {
   isOverview,
   isQuestion,
   isQuestionWithImages,
+  isNextButtonDisabled,
 } from '../utils';
 
 import { FeedContainer } from '../styles/feed';
@@ -34,8 +35,6 @@ export default function WhoAreYou({
   const handleClickNext = nextId === null
     ? (() => handleClickSubmit())
     : (() => handleClickNavigation(nextId));
-
-  const isNextButtonDisabled = (selectedAnswer === null) && (type !== 'overview');
 
   return (
     <FeedContainer>
@@ -69,8 +68,10 @@ export default function WhoAreYou({
         )
       }
       <BottomBar
+        type={type}
+        id={id}
         previousId={previousId}
-        disabled={isNextButtonDisabled}
+        disabled={isNextButtonDisabled(selectedAnswer, type)}
         handleClickBack={handleClickBack}
         handleClickNext={handleClickNext}
       />
