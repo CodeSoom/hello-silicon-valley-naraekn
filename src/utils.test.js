@@ -3,7 +3,6 @@ import {
   equal,
   isOverview,
   isQuestion,
-  isQuestionWithImages,
   isNextButtonDisabled,
   calculatePercent,
   calculateScore,
@@ -45,14 +44,6 @@ test('isOverview', () => {
 test('isQuestion', () => {
   const trueResult = isQuestion('question');
   const falseResult = isQuestion('somethingWrong');
-
-  expect(trueResult).toBeTruthy();
-  expect(falseResult).toBeFalsy();
-});
-
-test('isQuestionWithImages', () => {
-  const trueResult = isQuestionWithImages('question-with-images');
-  const falseResult = isQuestionWithImages('somethingWrong');
 
   expect(trueResult).toBeTruthy();
   expect(falseResult).toBeFalsy();
