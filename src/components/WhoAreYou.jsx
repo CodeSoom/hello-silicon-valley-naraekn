@@ -2,14 +2,12 @@ import React from 'react';
 
 import Overview from './Overview';
 import Question from './Question';
-import QuestionWithImages from './QuestionWithImages';
 import TopBar from './who-are-you/TopBar';
 import BottomBar from './who-are-you/BottomBar';
 
 import {
   isOverview,
   isQuestion,
-  isQuestionWithImages,
   isNextButtonDisabled,
 } from '../utils';
 
@@ -50,16 +48,6 @@ export default function WhoAreYou({
       {
         isQuestion(type) && (
           <Question
-            content={content}
-            images={images}
-            selectedAnswer={selectedAnswer}
-            handleClickAnswer={handleClickAnswer}
-          />
-        )
-      }
-      {
-        isQuestionWithImages(type) && (
-          <QuestionWithImages
             content={content}
             images={images}
             selectedAnswer={selectedAnswer}
