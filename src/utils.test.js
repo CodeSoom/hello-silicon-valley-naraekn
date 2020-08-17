@@ -4,6 +4,8 @@ import {
   isOverview,
   isQuestion,
   isQuestionWithImages,
+  isNextButtonDisabled,
+  calculatePercent,
   calculateScore,
   findTopScore,
 } from './utils';
@@ -54,6 +56,21 @@ test('isQuestionWithImages', () => {
 
   expect(trueResult).toBeTruthy();
   expect(falseResult).toBeFalsy();
+});
+
+test('isNextButtonDisabled', () => {
+  const trueResult = isNextButtonDisabled(null, 'question');
+  const falseResult1 = isNextButtonDisabled(1, 'question');
+  const falseResult2 = isNextButtonDisabled(null, 'overview');
+
+  expect(trueResult).toBeTruthy();
+  expect(falseResult1).toBeFalsy();
+  expect(falseResult2).toBeFalsy();
+});
+
+test('calculatePercent', () => {
+  expect(calculatePercent(2, 5)).toBe(40);
+  expect(calculatePercent(3, 5)).toBe(60);
 });
 
 test('calculateScore', () => {

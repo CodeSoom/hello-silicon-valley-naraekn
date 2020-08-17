@@ -14,6 +14,12 @@ export const isQuestionWithImages = (type) => (
   type === 'question-with-images'
 );
 
+export const isNextButtonDisabled = (selected, type) => (
+  (selected === null) && (type === 'question')
+);
+
+export const calculatePercent = (current, all) => (current / all) * 100;
+
 // TODO: Find a way to make the expression simpler
 export function calculateScore({ answers, scores }) {
   function addScores(accumulator, score) {
