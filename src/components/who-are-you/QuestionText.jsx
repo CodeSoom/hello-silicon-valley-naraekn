@@ -6,7 +6,8 @@ import { ACCENT_COLOR } from '../../styles/constants';
 
 const Container = styled.div({
   padding: '2em',
-  backgroundColor: '#EEE',
+  backgroundColor: '#F5F5F5',
+  boxShadow: '0 3px 3px -3px rgba(0,0,0,.2)',
 });
 
 const Title = styled.span({
