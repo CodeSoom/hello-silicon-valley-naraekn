@@ -2,18 +2,17 @@ import React from 'react';
 
 import styled from '@emotion/styled';
 
-import { ACCENT_COLOR } from '../../styles/constants';
+import FavoriteIcon from './FavoriteIcon';
 
-const Container = styled.div({
+const Container = styled.div(({ isLast }) => ({
   padding: '2em',
-  borderBottom: '.5px solid #F5F5F5',
-});
+  borderBottom: isLast ? '' : '.5px solid #D8D8D8',
+}));
 
 const Button = styled.button({
   display: 'flex',
   width: '100%',
   justifyContent: 'space-between',
-  textAlign: 'left',
   fontSize: '1em',
   borderColor: 'transparent',
   backgroundColor: 'transparent',
@@ -28,47 +27,32 @@ const ProfileImage = styled.img({
   borderRadius: '50%',
 });
 
-const Icon = styled.i(({ selected }) => ({
-  float: 'right',
-  margin: 'auto 0 auto 1em',
-  color: selected ? ACCENT_COLOR : '#5F5457',
-}));
+const AnswerText = styled.div({
+  flexGrow: 1,
+  textAlign: 'left',
+});
 
 export default function AnswerButtons({
   options, profiles, selectedAnswer, handleClick,
 }) {
   const isSelected = (id) => id === selectedAnswer;
 
+  const isLast = (id) => id === 4;
+
   return (
     <>
       {
         options.map((option, index) => (
-          <Container key={option.id}>
+          <Container
+            key={option.id}
+            isLast={isLast(option.id)}
+          >
             <Button
               onClick={() => handleClick(option.id)}
             >
               <ProfileImage src={profiles[index]} />
-              {option.title}
-              {
-                isSelected(option.id)
-                  ? (
-                    <Icon
-                      className="material-icons"
-                      selected={isSelected(option.id)}
-                    >
-                      favorite
-                    </Icon>
-                  )
-                  : (
-                    <Icon
-                      className="material-icons"
-                      selected={isSelected(option.id)}
-                    >
-                      favorite_border
-                    </Icon>
-                  )
-              }
-
+              <AnswerText>{option.title}</AnswerText>
+              <FavoriteIcon isSelected={isSelected(option.id)} />
             </Button>
           </Container>
         ))
