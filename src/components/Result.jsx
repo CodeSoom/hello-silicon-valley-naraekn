@@ -13,8 +13,8 @@ const Container = styled.div(({ id }) => ({
   height: '100%',
   backgroundImage: `linear-gradient(
     60deg, 
-    ${RESULT_GRADIENT_COLORS[2][0]}, 
-    ${RESULT_GRADIENT_COLORS[2][1]}
+    ${RESULT_GRADIENT_COLORS[9][0]}, 
+    ${RESULT_GRADIENT_COLORS[9][1]}
   )`,
 }));
 
