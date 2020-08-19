@@ -98,7 +98,7 @@ describe('WhoAreYouContainer', () => {
     });
   });
 
-  context('when not on the last page', () => {
+  context('when on the last page', () => {
     given('previousId', () => 4);
     given('nextId', () => null);
 

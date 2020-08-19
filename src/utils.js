@@ -16,9 +16,8 @@ export const isNextButtonDisabled = (selected, type) => (
 
 export const calculatePercent = (current, all) => (current / all) * 100;
 
-// TODO: Find a way to make the expression simpler
 export function calculateScore({ answers, scores }) {
-  function addScores(accumulator, score) {
+  const addScores = (accumulator, score) => {
     const newAccumulator = {};
 
     Object.keys(accumulator).forEach((key) => {
@@ -26,7 +25,7 @@ export function calculateScore({ answers, scores }) {
     });
 
     return newAccumulator;
-  }
+  };
 
   const totalScore = Object.entries(answers)
     .map(([key, value]) => scores[key][value])
@@ -35,8 +34,17 @@ export function calculateScore({ answers, scores }) {
   return totalScore;
 }
 
-export function findTopScore(score) {
-  const topScoreKey = Object.keys(score)
-    .reduce((a, b) => (score[a] > score[b] ? a : b));
-  return parseInt(topScoreKey, 10);
+export function findResultIds(scores) {
+  const sortedScores = Object.entries(scores)
+    .sort((a, b) => (b[1] - a[1]));
+
+  const getId = (index) => parseInt(sortedScores[index][0], 10);
+
+  const resultIds = {
+    firstId: getId(0),
+    secondId: getId(1),
+    lastId: getId(sortedScores.length - 1),
+  };
+
+  return resultIds;
 }

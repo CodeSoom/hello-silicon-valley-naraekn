@@ -55,16 +55,26 @@ describe('reducer', () => {
 
   describe('setResult', () => {
     it('changes a result', () => {
-      const previousState = { result: null };
+      const previousState = {
+        result: {
+          first: null,
+          second: null,
+          last: null,
+        },
+      };
 
-      const resultId = 1;
+      const resultIds = {
+        first: 1,
+        second: 2,
+        last: 4,
+      };
 
       const { result } = reducer(
         previousState,
-        setResult(resultId),
+        setResult(resultIds),
       );
 
-      expect(result).toEqual(resultId);
+      expect(result).toEqual(resultIds);
     });
   });
 });
