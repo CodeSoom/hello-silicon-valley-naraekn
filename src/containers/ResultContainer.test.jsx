@@ -10,6 +10,8 @@ import ResultContainer from './ResultContainer';
 
 import RESULTS from '../../fixtures/results';
 
+jest.mock('../assets/images');
+
 test('ResultContainer', () => {
   useSelector.mockImplementation((selector) => selector({
     result: {
