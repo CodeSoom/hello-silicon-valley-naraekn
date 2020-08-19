@@ -12,7 +12,11 @@ import RESULTS from '../../fixtures/results';
 
 test('ResultPage', () => {
   useSelector.mockImplementation((selector) => selector({
-    result: RESULTS[0],
+    result: {
+      first: RESULTS[0],
+      second: RESULTS[1],
+      last: RESULTS[2],
+    },
   }));
 
   const { getByText } = render((

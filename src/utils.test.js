@@ -6,7 +6,7 @@ import {
   isNextButtonDisabled,
   calculatePercent,
   calculateScore,
-  findTopScore,
+  findResultIds,
 } from './utils';
 
 test('get', () => {
@@ -84,22 +84,22 @@ test('calculateScore', () => {
   expect(score).toEqual({ 1: 9, 2: 12 });
 });
 
-describe('findTopScore', () => {
-  it('returns an key of the top score', () => {
-    const score = { 1: 9, 2: 12 };
+test('findResultIds', () => {
+  const scores = {
+    1: 10,
+    2: 0,
+    3: 5,
+    4: 5,
+    5: 8,
+  };
 
-    const result = findTopScore(score);
+  const resultIds = {
+    firstId: 1,
+    secondId: 5,
+    lastId: 2,
+  };
 
-    expect(result).toBe(2);
-  });
+  const result = findResultIds(scores);
 
-  context('when scores are tied', () => {
-    it('returns one randomly', () => {
-      const score = { 1: 9, 2: 12, 3: 12 };
-
-      const result = findTopScore(score);
-
-      expect(result === 2 || result === 3).toBeTruthy();
-    });
-  });
+  expect(result).toEqual(resultIds);
 });

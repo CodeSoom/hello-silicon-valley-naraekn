@@ -12,7 +12,11 @@ import RESULTS from '../../fixtures/results';
 
 test('ResultContainer', () => {
   useSelector.mockImplementation((selector) => selector({
-    result: RESULTS[0],
+    result: {
+      first: RESULTS[0],
+      second: RESULTS[1],
+      last: RESULTS[2],
+    },
   }));
 
   const { getByText } = render((
@@ -21,8 +25,8 @@ test('ResultContainer', () => {
     </MemoryRouter>
   ));
 
-  const { name, description } = RESULTS[0];
-
-  expect(getByText(name)).not.toBeNull();
-  expect(getByText(description)).not.toBeNull();
+  // TODO: Make tests more detail
+  expect(getByText(RESULTS[0].name)).not.toBeNull();
+  expect(getByText(RESULTS[1].name)).not.toBeNull();
+  expect(getByText(RESULTS[2].name)).not.toBeNull();
 });

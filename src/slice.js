@@ -11,7 +11,7 @@ import {
 
 import {
   calculateScore,
-  findTopScore,
+  findResultIds,
 } from './utils';
 
 const { actions, reducer } = createSlice({
@@ -20,7 +20,11 @@ const { actions, reducer } = createSlice({
     test: null,
     testImages: null,
     answers: {},
-    result: null,
+    result: {
+      first: null,
+      second: null,
+      last: null,
+    },
   },
   reducers: {
     setTest(state, { payload: test }) {
@@ -46,10 +50,14 @@ const { actions, reducer } = createSlice({
         },
       };
     },
-    setResult(state, { payload: result }) {
+    setResult(state, { payload: { first, second, last } }) {
       return {
         ...state,
-        result,
+        result: {
+          first,
+          second,
+          last,
+        },
       };
     },
   },
@@ -81,18 +89,22 @@ export function loadInitialTest() {
     dispatch(setTestImages(images));
   };
 }
-
+// TODO: Use better variable names
 export function loadResult(answers) {
   return (dispatch) => {
     const scores = getScores();
 
-    const score = calculateScore({ answers, scores });
+    const totalScore = calculateScore({ answers, scores });
 
-    const resultId = findTopScore(score);
+    const { firstId, secondId, lastId } = findResultIds(totalScore);
 
-    const result = getResult(resultId);
+    const results = {
+      first: getResult(firstId),
+      second: getResult(secondId),
+      last: getResult(lastId),
+    };
 
-    dispatch(setResult(result));
+    dispatch(setResult(results));
   };
 }
 
