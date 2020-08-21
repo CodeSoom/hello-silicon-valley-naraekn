@@ -27,8 +27,7 @@ test('ResultContainer', () => {
     </MemoryRouter>
   ));
 
-  // TODO: Make tests more detail
-  expect(getByText(RESULTS[0].name)).not.toBeNull();
-  expect(getByText(RESULTS[1].name)).not.toBeNull();
-  expect(getByText(RESULTS[2].name)).not.toBeNull();
+  expect(getByText(RESULTS[0].description)).not.toBeNull();
+  expect(getByText(RESULTS[1].tag)).not.toBeNull();
+  expect(getByText(RESULTS[2].tag)).not.toBeNull();
 });

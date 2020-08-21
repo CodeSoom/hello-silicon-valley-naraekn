@@ -10,22 +10,41 @@ import CompanyTitle from './result/CompanyTitle';
 import ResultPageButtons from './result/ResultPageButtons';
 
 const Container = styled.div(({ id }) => ({
-  height: '100%',
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'space-between',
+  minHeight: '100vh',
+  margin: 0,
+  padding: 0,
   backgroundImage: `linear-gradient(
     60deg, 
-    ${RESULT_GRADIENT_COLORS[9][0]}, 
-    ${RESULT_GRADIENT_COLORS[9][1]}
+    ${RESULT_GRADIENT_COLORS[id][0]}, 
+    ${RESULT_GRADIENT_COLORS[id][1]}
   )`,
+  backgroundAttachment: 'fixed',
 }));
 
-// TODO: Props will be applied after the ResultPage design is fixed
+const Wrapper = styled.div({
+  padding: 0,
+  margin: 0,
+});
 
 export default function Result({ first, second, last }) {
   return (
-    <Container>
-      <ProfileBar />
-      <CompanyTitle />
-      <ResultContent />
+    <Container id={first.id}>
+      <Wrapper>
+        <ProfileBar
+          isBackgroundDark={first.type === 'dark'}
+        />
+        <CompanyTitle
+          id={first.id}
+        />
+        <ResultContent
+          first={first}
+          second={second}
+          last={last}
+        />
+      </Wrapper>
       <ResultPageButtons />
     </Container>
   );

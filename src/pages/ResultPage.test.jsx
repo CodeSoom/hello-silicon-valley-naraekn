@@ -27,5 +27,5 @@ test('ResultPage', () => {
     </MemoryRouter>
   ));
 
-  expect(getByText(/결과/)).not.toBeNull();
+  expect(getByText(/What_is_your_company?/)).not.toBeNull();
 });

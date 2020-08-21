@@ -6,8 +6,8 @@ export const MAIN_GRADIENT_COLOR = ['#FC7500', '#8C18E0'];
 export const GRAY_GRADIENT_COLOR = ['#D6D6D6', '#ADADAD'];
 export const RESULT_GRADIENT_COLORS = {
   1: ['#F67D61', '#FA5590'],
-  2: ['#A0F2EC', '#2678F0'],
-  3: ['#FF9093', '#FF182E'],
+  2: ['#FF9093', '#FF182E'],
+  3: ['#A0F2EC', '#2678F0'],
   4: ['#92E9BF', '#76C03A'],
   5: ['#FFCB86', '#FF7A24'],
   6: ['#4649FF', '#8FB0FF'],

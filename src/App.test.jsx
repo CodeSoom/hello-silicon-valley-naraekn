@@ -63,7 +63,7 @@ describe('App', () => {
     it('renders ResultPage', () => {
       const { container } = renderApp({ path: '/result' });
 
-      expect(container).toHaveTextContent(/결과/);
+      expect(container).toHaveTextContent(/What_is_your_company?/);
     });
   });
 });
