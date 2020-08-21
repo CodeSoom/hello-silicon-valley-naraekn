@@ -4,6 +4,8 @@ import { useDispatch } from 'react-redux';
 
 import { loadInitialTest } from '../slice';
 
+import Home from '../components/Home';
+
 export default function HomeContainer({ handleClickLink }) {
   const dispatch = useDispatch();
 
@@ -12,16 +14,14 @@ export default function HomeContainer({ handleClickLink }) {
     handleClickLink('/tests');
   }
 
-  // TODO: Seperate to presentational components later
+  function handleClickAbout() {
+    handleClickLink('/about');
+  }
 
   return (
-    <>
-      <button
-        type="button"
-        onClick={handleClickTest}
-      >
-        테스트하기
-      </button>
-    </>
+    <Home
+      handleClickTest={handleClickTest}
+      handleClickAbout={handleClickAbout}
+    />
   );
 }

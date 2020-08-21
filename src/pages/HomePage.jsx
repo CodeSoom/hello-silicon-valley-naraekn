@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 import HomeContainer from '../containers/HomeContainer';
 
@@ -12,11 +12,8 @@ export default function HomePage() {
   }
 
   return (
-    <>
-      <HomeContainer
-        handleClickLink={handleClickLink}
-      />
-      <Link to="/about">About</Link>
-    </>
+    <HomeContainer
+      handleClickLink={handleClickLink}
+    />
   );
 }

@@ -1,4 +1,5 @@
-const LogoImage = '';
+const WhiteLogoImage = '';
+const BlackLogoImage = '';
 const ExampleImage1 = '';
 const ExampleImage2 = '';
 const ExampleImage3 = '';
@@ -29,7 +30,8 @@ export const companyTitles = {
 };
 
 export {
-  LogoImage,
+  WhiteLogoImage,
+  BlackLogoImage,
   ExampleImage1,
   ExampleImage2,
   ExampleImage3,

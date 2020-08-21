@@ -29,9 +29,9 @@ test('HomePage', () => {
     </MemoryRouter>
   ));
 
-  expect(getByText(/About/)).not.toBeNull();
+  expect(getByText(/만든 사람들/)).not.toBeNull();
 
-  fireEvent.click(getByText(/테스트하기/));
+  fireEvent.click(getByText(/테스트 시작하기/));
 
   expect(mockPush).toBeCalledWith('/tests');
 });

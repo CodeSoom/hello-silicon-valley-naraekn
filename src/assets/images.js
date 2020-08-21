@@ -1,4 +1,5 @@
-import LogoImage from './logo.png';
+import WhiteLogoImage from './logo_white.png';
+import BlackLogoImage from './logo_black.png';
 import ExampleImage1 from './example_image_1.png';
 import ExampleImage2 from './example_image_2.png';
 import ExampleImage3 from './example_image_3.png';
@@ -47,7 +48,8 @@ export const companyTitles = {
 };
 
 export {
-  LogoImage,
+  WhiteLogoImage,
+  BlackLogoImage,
   ExampleImage1,
   ExampleImage2,
   ExampleImage3,

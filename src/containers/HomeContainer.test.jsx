@@ -20,7 +20,7 @@ test('HomeContainer', () => {
     />
   ));
 
-  fireEvent.click(getByText(/테스트하기/));
+  fireEvent.click(getByText(/테스트 시작하기/));
 
   expect(dispatch).toBeCalled();
 
