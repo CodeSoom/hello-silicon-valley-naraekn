@@ -4,6 +4,7 @@ export const BOTTOM_BAR_HEIGHT = '4.2em';
 export const ACCENT_COLOR = '#E65F5E';
 export const MAIN_GRADIENT_COLOR = ['#FC7500', '#8C18E0'];
 export const GRAY_GRADIENT_COLOR = ['#D6D6D6', '#ADADAD'];
+export const HOME_GRADIENT_COLOR = ['#EE8C59', '#BC3DA6'];
 export const RESULT_GRADIENT_COLORS = {
   1: ['#F67D61', '#FA5590'],
   2: ['#FF9093', '#FF182E'],

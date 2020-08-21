@@ -46,8 +46,8 @@ describe('App', () => {
     it('renders HomePage', () => {
       const { container } = renderApp({ path: '/' });
 
-      expect(container).toHaveTextContent(/테스트하기/);
-      expect(container).toHaveTextContent(/About/);
+      expect(container).toHaveTextContent(/테스트 시작하기/);
+      expect(container).toHaveTextContent(/만든 사람들/);
     });
   });
 
