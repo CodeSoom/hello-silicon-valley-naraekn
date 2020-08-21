@@ -4,8 +4,6 @@ import styled from '@emotion/styled';
 
 import { ExampleImage1 } from '../../assets/images';
 
-import { MAIN_GRADIENT_COLOR } from '../../styles/constants';
-
 const IndicatorContainer = styled.div({
   display: 'flex',
   padding: '.5em',
@@ -18,12 +16,13 @@ const Indicator = styled.div(({ inProgress }) => ({
   background: inProgress ? 'white' : '#DDD',
 }));
 
-const ProfileContainer = styled.div({
+const ProfileContainer = styled.div(({ isBackgroundDark }) => ({
   display: 'flex',
   padding: '.5em 1em',
   alignItems: 'center',
-  fontSize: '1.3em',
-});
+  fontSize: '1.1em',
+  color: isBackgroundDark ? '#FFF' : '',
+}));
 
 const ProfileImage = styled.img({
   float: 'left',
@@ -31,24 +30,20 @@ const ProfileImage = styled.img({
   height: '3em',
   marginRight: '1em',
   borderRadius: '50%',
-  background: `linear-gradient(
-    60deg,
-    ${MAIN_GRADIENT_COLOR[0]},
-    ${MAIN_GRADIENT_COLOR[1]}
-  )`,
-  padding: '2px',
+  background: 'rgba( 255, 255, 255, 0.7)',
+  padding: '2.5px',
 });
 
-// TODO: These codes will be modified later
-
-export default function ProfileBar() {
+export default function ProfileBar({ isBackgroundDark }) {
   return (
     <>
       <IndicatorContainer>
         <Indicator inProgress />
         <Indicator inProgress={false} />
       </IndicatorContainer>
-      <ProfileContainer>
+      <ProfileContainer
+        isBackgroundDark={isBackgroundDark}
+      >
         <ProfileImage src={ExampleImage1} />
         What_is_your_company?
       </ProfileContainer>

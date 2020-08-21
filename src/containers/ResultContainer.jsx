@@ -9,8 +9,6 @@ import { get } from '../utils';
 export default function ResultContainer() {
   const { first, second, last } = useSelector(get('result'));
 
-  // TODO: Decide whether to use `Link` or `useHistory`
-  // TODO: This is sample codes for ResultPage
   return (
     <>
       <Result
