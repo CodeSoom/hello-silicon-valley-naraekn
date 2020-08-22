@@ -24,5 +24,5 @@ test('HomeContainer', () => {
 
   expect(dispatch).toBeCalled();
 
-  expect(handleClickLink).toBeCalledWith('/tests');
+  expect(handleClickLink).toBeCalledWith('/who-are-you');
 });

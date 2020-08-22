@@ -16,7 +16,7 @@ export default function App() {
         <Route exact path="/" component={HomePage} />
         <Route path="/contributors" component={ContributorsPage} />
         <Route path="/result" component={ResultPage} />
-        <Route path="/tests" component={WhoAreYouPage} />
+        <Route path="/who-are-you" component={WhoAreYouPage} />
       </Switch>
     </Root>
   );
