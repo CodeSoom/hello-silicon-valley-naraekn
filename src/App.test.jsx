@@ -10,7 +10,6 @@ import App from './App';
 
 import QUESTION from '../fixtures/question';
 import RESULTS from '../fixtures/results';
-import IMAGES from '../fixtures/images';
 
 jest.mock('./assets/images');
 
@@ -32,7 +31,6 @@ describe('App', () => {
 
     useSelector.mockImplementation((selector) => selector({
       test: QUESTION,
-      testImages: IMAGES,
       answers: {},
       result: {
         first: RESULTS[0],

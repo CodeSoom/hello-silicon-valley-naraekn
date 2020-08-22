@@ -13,7 +13,6 @@ export default function WhoAreYouContainer() {
 
   const answers = useSelector(get('answers'));
   const test = useSelector(get('test'));
-  const images = useSelector(get('testImages'));
 
   function handleClickOption({ questionId, answerId }) {
     dispatch(setAnswer({ questionId, answerId }));
@@ -26,7 +25,6 @@ export default function WhoAreYouContainer() {
   return (
     <WhoAreYou
       test={test}
-      images={images}
       selectedAnswer={selectedAnswer}
       handleClickOption={handleClickOption}
     />

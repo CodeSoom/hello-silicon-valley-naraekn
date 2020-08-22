@@ -1,6 +1,3 @@
-const images = {
-  feeds: ['', '', '', ''],
-  profiles: ['', '', '', ''],
-};
+const images = ['', ''];
 
 export default images;

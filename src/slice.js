@@ -5,8 +5,6 @@ import {
   getInitialTest,
   getScores,
   getResult,
-  getInitialTestImages,
-  getTestImages,
 } from './services/api';
 
 import {
@@ -18,7 +16,6 @@ const { actions, reducer } = createSlice({
   name: 'application',
   initialState: {
     test: null,
-    testImages: null,
     answers: {},
     result: {
       first: null,
@@ -31,12 +28,6 @@ const { actions, reducer } = createSlice({
       return {
         ...state,
         test,
-      };
-    },
-    setTestImages(state, { payload: testImages }) {
-      return {
-        ...state,
-        testImages,
       };
     },
     setAnswer(state, { payload: { questionId, answerId } }) {
@@ -65,7 +56,6 @@ const { actions, reducer } = createSlice({
 
 export const {
   setTest,
-  setTestImages,
   setAnswer,
   setResult,
 } = actions;
@@ -73,23 +63,19 @@ export const {
 export function loadTest(id) {
   return (dispatch) => {
     const test = getTest(id);
-    const images = getTestImages(id);
 
     dispatch(setTest(test));
-    dispatch(setTestImages(images));
   };
 }
 
 export function loadInitialTest() {
   return (dispatch) => {
     const test = getInitialTest();
-    const images = getInitialTestImages();
 
     dispatch(setTest(test));
-    dispatch(setTestImages(images));
   };
 }
-// TODO: Use better variable names
+
 export function loadResult(answers) {
   return (dispatch) => {
     const scores = getScores();

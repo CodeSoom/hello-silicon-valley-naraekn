@@ -11,12 +11,10 @@ export default function Overview({
 }) {
   const { title, explanation, tips } = content;
 
-  const { feeds } = images;
-
   return (
     <>
       <ImageSlider
-        feeds={feeds}
+        feeds={images}
       />
       <FeedContent>
         <OverviewText

@@ -12,7 +12,6 @@ import { setAnswer } from '../slice';
 
 import CONTENT from '../../fixtures/content';
 import ANSWERS from '../../fixtures/answers';
-import IMAGES from '../../fixtures/images';
 
 jest.mock('react-redux');
 jest.mock('../services/api');
@@ -39,7 +38,6 @@ describe('WhoAreYouContainer', () => {
         previousId: 1,
         nextId: 3,
       },
-      testImages: IMAGES,
       answers: ANSWERS,
     }));
   });
