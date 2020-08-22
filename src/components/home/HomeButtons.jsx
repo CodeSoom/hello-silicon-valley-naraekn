@@ -46,7 +46,7 @@ const ContributorsButton = styled.button({
 });
 
 export default function HomeButtons({
-  onClickTest, onClickAbout,
+  onClickTest, onClickContributors,
 }) {
   return (
     <Container>
@@ -56,7 +56,7 @@ export default function HomeButtons({
         테스트 시작하기
       </GotoTestButton>
       <ContributorsButton
-        onClick={onClickAbout}
+        onClick={onClickContributors}
       >
         만든 사람들
       </ContributorsButton>

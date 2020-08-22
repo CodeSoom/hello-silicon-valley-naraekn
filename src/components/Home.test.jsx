@@ -8,12 +8,12 @@ jest.mock('../assets/images');
 
 test('Home', () => {
   const handleClickTest = jest.fn();
-  const handleClickAbout = jest.fn();
+  const handleClickContributors = jest.fn();
 
   const { getByText } = render((
     <Home
       handleClickTest={handleClickTest}
-      handleClickAbout={handleClickAbout}
+      handleClickContributors={handleClickContributors}
     />
   ));
 
