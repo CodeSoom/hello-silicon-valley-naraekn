@@ -6,23 +6,17 @@ import WhoAreYou from './WhoAreYou';
 
 import QUESTION from '../../fixtures/question';
 import OVERVIEW from '../../fixtures/overview';
-import IMAGES from '../../fixtures/images';
 
 jest.mock('../assets/images');
 
 describe('WhoAreYou', () => {
   const handleClickOption = jest.fn();
-  const handleClickNavigation = jest.fn();
-  const handleClickSubmit = jest.fn();
 
   const renderWhoAreYou = () => render((
     <WhoAreYou
       test={given.test}
-      images={IMAGES}
       selectedAnswer={1}
-      handleClickAnswer={handleClickOption}
-      handleClickNavigation={handleClickNavigation}
-      handleClickSubmit={handleClickSubmit}
+      handleClickOption={handleClickOption}
     />
   ));
 

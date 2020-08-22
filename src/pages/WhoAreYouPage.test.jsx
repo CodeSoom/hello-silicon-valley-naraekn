@@ -7,7 +7,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import WhoAreYouPage from './WhoAreYouPage';
 
 import QUESTION from '../../fixtures/question';
-import IMAGES from '../../fixtures/images';
 import ANSWERS from '../../fixtures/answers';
 
 const mockPush = jest.fn();
@@ -31,7 +30,6 @@ describe('WhoAreYouPage', () => {
         ...QUESTION,
         nextId: null,
       },
-      testImages: IMAGES,
       answers: ANSWERS,
     }));
   });

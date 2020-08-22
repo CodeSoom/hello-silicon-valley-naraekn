@@ -8,8 +8,6 @@ export default function Question({
 }) {
   const { title, question, options } = content;
 
-  const { profiles } = images;
-
   return (
     <>
       <QuestionText
@@ -18,7 +16,7 @@ export default function Question({
       />
       <AnswerButtons
         options={options}
-        profiles={profiles}
+        profiles={images}
         selectedAnswer={selectedAnswer}
         onClick={handleClickAnswer}
       />

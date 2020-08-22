@@ -1,9 +1,11 @@
 import WhiteLogoImage from './logo_white.png';
 import BlackLogoImage from './logo_black.png';
+
 import ExampleImage1 from './example_image_1.png';
 import ExampleImage2 from './example_image_2.png';
 import ExampleImage3 from './example_image_3.png';
 import ExampleImage4 from './example_image_4.png';
+
 import AmazonLogoImage from './images/result/amazon_logo.png';
 import AmazonTitleImage from './images/result/amazon_title.png';
 import AppleLogoImage from './images/result/apple_logo.png';
@@ -22,6 +24,51 @@ import PlugAndPlayLogoImage from './images/result/plugandplay_logo.png';
 import PlugAndPlayTitleImage from './images/result/plugandplay_title.png';
 import TeslaLogoImage from './images/result/tesla_logo.png';
 import TeslaTitleImage from './images/result/tesla_title.png';
+
+import FeedImage101 from './images/feeds/feed1_1.png';
+import FeedImage102 from './images/feeds/feed1_2.png';
+import FeedImage201 from './images/feeds/feed2_1.png';
+import FeedImage202 from './images/feeds/feed2_2.png';
+import FeedImage301 from './images/feeds/feed3_1.png';
+import FeedImage302 from './images/feeds/feed3_2.png';
+
+import Profile101 from './images/profiles/profile1_1.png';
+import Profile102 from './images/profiles/profile1_2.png';
+import Profile103 from './images/profiles/profile1_3.png';
+import Profile104 from './images/profiles/profile1_4.png';
+import Profile201 from './images/profiles/profile2_1.png';
+import Profile202 from './images/profiles/profile2_2.png';
+import Profile203 from './images/profiles/profile2_3.png';
+import Profile204 from './images/profiles/profile2_4.png';
+import Profile301 from './images/profiles/profile3_1.png';
+import Profile302 from './images/profiles/profile3_2.png';
+import Profile303 from './images/profiles/profile3_3.png';
+import Profile304 from './images/profiles/profile3_4.png';
+import Profile401 from './images/profiles/profile4_1.png';
+import Profile402 from './images/profiles/profile4_2.png';
+import Profile403 from './images/profiles/profile4_3.png';
+import Profile404 from './images/profiles/profile4_4.png';
+import Profile501 from './images/profiles/profile5_1.png';
+import Profile502 from './images/profiles/profile5_2.png';
+import Profile503 from './images/profiles/profile5_3.png';
+import Profile504 from './images/profiles/profile5_4.png';
+import Profile601 from './images/profiles/profile6_1.png';
+import Profile602 from './images/profiles/profile6_2.png';
+import Profile603 from './images/profiles/profile6_3.png';
+import Profile604 from './images/profiles/profile6_4.png';
+import Profile701 from './images/profiles/profile7_1.png';
+import Profile702 from './images/profiles/profile7_2.png';
+import Profile703 from './images/profiles/profile7_3.png';
+import Profile704 from './images/profiles/profile7_4.png';
+
+export {
+  WhiteLogoImage,
+  BlackLogoImage,
+  ExampleImage1,
+  ExampleImage2,
+  ExampleImage3,
+  ExampleImage4,
+};
 
 export const companyLogos = {
   1: GoogleLogoImage,
@@ -47,11 +94,101 @@ export const companyTitles = {
   9: MicrosoftTitleImage,
 };
 
-export {
-  WhiteLogoImage,
-  BlackLogoImage,
-  ExampleImage1,
-  ExampleImage2,
-  ExampleImage3,
-  ExampleImage4,
+export const questionnaireImages = {
+  1: [
+    FeedImage101,
+    FeedImage102,
+  ],
+  2: [
+    Profile101,
+    Profile102,
+    Profile103,
+    Profile104,
+  ],
+  3: [
+    Profile201,
+    Profile202,
+    Profile203,
+    Profile204,
+  ],
+  4: [
+    Profile101,
+    Profile102,
+    Profile103,
+    Profile104,
+  ],
+  5: [
+    Profile401,
+    Profile402,
+    Profile403,
+    Profile404,
+  ],
+  6: [
+    FeedImage201,
+    FeedImage202,
+  ],
+  7: [
+    Profile601,
+    Profile602,
+    Profile603,
+    Profile604,
+  ],
+  8: [
+    Profile301,
+    Profile302,
+    Profile303,
+    Profile304,
+  ],
+  9: [
+    Profile301,
+    Profile302,
+    Profile303,
+    Profile304,
+  ],
+  10: [
+    Profile501,
+    Profile502,
+    Profile503,
+    Profile504,
+  ],
+  11: [
+    FeedImage301,
+    FeedImage302,
+  ],
+  12: [
+    Profile301,
+    Profile302,
+    Profile303,
+    Profile304,
+  ],
+  13: [
+    Profile601,
+    Profile602,
+    Profile603,
+    Profile604,
+  ],
+  14: [
+    Profile701,
+    Profile702,
+    Profile703,
+    Profile704,
+  ],
+  15: [
+    Profile601,
+    Profile602,
+    Profile603,
+    Profile604,
+  ],
+  16: [
+    Profile301,
+    Profile302,
+    Profile303,
+    Profile304,
+  ],
+  17: [
+    Profile101,
+    Profile102,
+    Profile103,
+    Profile104,
+  ],
 };

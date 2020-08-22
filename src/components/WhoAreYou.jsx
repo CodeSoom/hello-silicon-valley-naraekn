@@ -9,12 +9,14 @@ import {
 } from '../utils';
 
 import { FeedLayout } from '../styles/who-are-you';
+import { questionnaireImages } from '../assets/images';
 
 export default function WhoAreYou({
-  test, images, selectedAnswer,
-  handleClickOption,
+  test, selectedAnswer, handleClickOption,
 }) {
   const { id, type, content } = test;
+
+  const images = questionnaireImages[id];
 
   const handleClickAnswer = (answerId) => handleClickOption({
     questionId: id,
