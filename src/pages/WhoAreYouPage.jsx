@@ -2,16 +2,24 @@ import React from 'react';
 
 import { useHistory } from 'react-router-dom';
 
+import TopBar from '../components/who-are-you/TopBar';
 import WhoAreYouContainer from '../containers/WhoAreYouContainer';
+import ButtonsBarContainer from '../containers/ButtonsBarContainer';
 
 export default function WhoAreYouPage() {
   const history = useHistory();
 
-  function handleClickLink(url) {
-    history.push(url);
+  function handleClickResult() {
+    history.push('/result');
   }
 
   return (
-    <WhoAreYouContainer handleClickLink={handleClickLink} />
+    <>
+      <TopBar />
+      <WhoAreYouContainer />
+      <ButtonsBarContainer
+        handleClickResult={handleClickResult}
+      />
+    </>
   );
 }

@@ -2,6 +2,8 @@ import React from 'react';
 
 import styled from '@emotion/styled';
 
+import TitleWithEmoji from './TitleWithEmoji';
+
 import { companyLogos } from '../../assets/images';
 
 const Container = styled.div({
@@ -9,15 +11,6 @@ const Container = styled.div({
   margin: '2em',
   borderRadius: '.5em',
   padding: '1.5em',
-});
-
-const Title = styled.div({
-  fontFamily: 'Source Code Pro',
-  fontWeight: 'bold',
-  textAlign: 'center',
-  padding: '.3em',
-  margin: '.5em 0',
-  borderBottom: '.5px solid #E8E8E8',
 });
 
 const Tag = styled.div({
@@ -32,18 +25,26 @@ const CompanyLogo = styled.img({
 });
 
 export default function ResultContent({ first, second, last }) {
-  const firstTitle = '🎉THIS_IS_YOUR_COMPANY!🎉';
-  const secondTitle = '🥈Second_Fit_Company🥈';
-  const lastTitle = '👎Worst_Fit_Company👎';
-
   return (
     <Container>
-      <Title>{firstTitle}</Title>
-      <CompanyLogo src={companyLogos[first.id]} alt="" />
+      <TitleWithEmoji
+        title="THIS_IS_YOUR_COMPANY!"
+        emoji="🎉"
+      />
+      <CompanyLogo
+        src={companyLogos[first.id]}
+        alt=""
+      />
       <p>{first.description}</p>
-      <Title>{secondTitle}</Title>
+      <TitleWithEmoji
+        title="Second_Fit_Company"
+        emoji="🥈"
+      />
       <Tag>{second.tag}</Tag>
-      <Title>{lastTitle}</Title>
+      <TitleWithEmoji
+        title="Worst_Fit_Company"
+        emoji="👎"
+      />
       <Tag>{last.tag}</Tag>
     </Container>
   );

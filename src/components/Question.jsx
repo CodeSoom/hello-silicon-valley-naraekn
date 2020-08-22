@@ -20,7 +20,7 @@ export default function Question({
         options={options}
         profiles={profiles}
         selectedAnswer={selectedAnswer}
-        handleClick={handleClickAnswer}
+        onClick={handleClickAnswer}
       />
     </>
   );

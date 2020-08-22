@@ -4,7 +4,7 @@ import ImageSlider from './who-are-you/ImageSlider';
 import OverviewText from './who-are-you/OverviewText';
 import TipsText from './who-are-you/TipsText';
 
-import { FeedContent } from '../styles/feed';
+import { FeedContent } from '../styles/who-are-you';
 
 export default function Overview({
   content, images,
