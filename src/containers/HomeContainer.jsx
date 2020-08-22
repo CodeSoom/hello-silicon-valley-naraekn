@@ -11,7 +11,7 @@ export default function HomeContainer({ handleClickLink }) {
 
   function handleClickTest() {
     dispatch(loadInitialTest());
-    handleClickLink('/tests');
+    handleClickLink('/who-are-you');
   }
 
   function handleClickContributors() {

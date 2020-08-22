@@ -33,5 +33,5 @@ test('HomePage', () => {
 
   fireEvent.click(getByText(/테스트 시작하기/));
 
-  expect(mockPush).toBeCalledWith('/tests');
+  expect(mockPush).toBeCalledWith('/who-are-you');
 });

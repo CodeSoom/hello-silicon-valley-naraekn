@@ -29,7 +29,9 @@ const Wrapper = styled.div({
   padding: 0,
 });
 
-export default function Result({ first, second, last }) {
+export default function Result({
+  first, second, last, handleClick,
+}) {
   return (
     <Container id={first.id}>
       <Wrapper>
@@ -45,7 +47,9 @@ export default function Result({ first, second, last }) {
           last={last}
         />
       </Wrapper>
-      <ResultPageButtons />
+      <ResultPageButtons
+        onClick={handleClick}
+      />
     </Container>
   );
 }

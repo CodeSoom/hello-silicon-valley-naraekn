@@ -45,15 +45,19 @@ const ContributorsButton = styled.button({
   },
 });
 
-export default function ResultPageButtons() {
+export default function ResultPageButtons({ onClick }) {
   return (
     <Container>
       <HomeButton
         type="button"
+        onClick={() => onClick('/')}
       >
         HOME
       </HomeButton>
-      <ContributorsButton type="button">
+      <ContributorsButton
+        type="button"
+        onClick={() => onClick('/contributors')}
+      >
         CONTRIBUTORS
         {' '}
         <span role="img" aria-label="congrats">🥳</span>
