@@ -4,16 +4,11 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import WhoAreYou from '../components/WhoAreYou';
 
-import {
-  setAnswer,
-  setTest,
-  loadTest,
-  loadResult,
-} from '../slice';
+import { setAnswer } from '../slice';
 
 import { get } from '../utils';
 
-export default function WhoAreYouContainer({ handleClickLink }) {
+export default function WhoAreYouContainer() {
   const dispatch = useDispatch();
 
   const answers = useSelector(get('answers'));
@@ -24,30 +19,16 @@ export default function WhoAreYouContainer({ handleClickLink }) {
     dispatch(setAnswer({ questionId, answerId }));
   }
 
-  function handleClickNavigation(id) {
-    dispatch(loadTest(id));
-  }
-
-  function handleClickSubmit(savedAnswers) {
-    dispatch(setTest(null));
-    dispatch(loadResult(savedAnswers));
-    handleClickLink('/result');
-  }
-
   const { id } = test;
 
   const selectedAnswer = answers[id] || null;
 
   return (
-    <>
-      <WhoAreYou
-        test={test}
-        images={images}
-        selectedAnswer={selectedAnswer}
-        handleClickOption={handleClickOption}
-        handleClickNavigation={handleClickNavigation}
-        handleClickSubmit={() => handleClickSubmit(answers)}
-      />
-    </>
+    <WhoAreYou
+      test={test}
+      images={images}
+      selectedAnswer={selectedAnswer}
+      handleClickOption={handleClickOption}
+    />
   );
 }

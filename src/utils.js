@@ -17,19 +17,17 @@ export const isNextButtonDisabled = (selected, type) => (
 export const calculatePercent = (current, all) => (current / all) * 100;
 
 export function calculateScore({ answers, scores }) {
-  const addScores = (accumulator, score) => {
-    const newAccumulator = {};
-
-    Object.keys(accumulator).forEach((key) => {
-      newAccumulator[key] = accumulator[key] + score[key];
-    });
-
-    return newAccumulator;
-  };
-
   const totalScore = Object.entries(answers)
     .map(([key, value]) => scores[key][value])
-    .reduce(addScores);
+    .reduce((acc, cur) => {
+      const newAccumulator = {};
+
+      Object.keys(acc).forEach((key) => {
+        newAccumulator[key] = acc[key] + cur[key];
+      });
+
+      return newAccumulator;
+    });
 
   return totalScore;
 }

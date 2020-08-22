@@ -44,7 +44,7 @@ describe('WhoAreYouPage', () => {
     it('occurs page navigation', () => {
       const { getByText } = renderWhoAreYouPage();
 
-      fireEvent.click(getByText(/NEXT/));
+      fireEvent.click(getByText(/SUBMIT/));
 
       expect(mockPush).toBeCalledWith('/result');
     });

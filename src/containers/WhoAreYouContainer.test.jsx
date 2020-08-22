@@ -8,7 +8,7 @@ import configureStore from 'redux-mock-store';
 
 import WhoAreYouContainer from './WhoAreYouContainer';
 
-import { setAnswer, setTest } from '../slice';
+import { setAnswer } from '../slice';
 
 import CONTENT from '../../fixtures/content';
 import ANSWERS from '../../fixtures/answers';
@@ -21,22 +21,12 @@ jest.mock('../assets/images');
 describe('WhoAreYouContainer', () => {
   const currentId = 2;
 
-  const handleClickLink = jest.fn();
-
   const mockStore = configureStore(getDefaultMiddleware());
   const store = mockStore({});
 
   const renderWhoAreYouContainer = () => render((
-    <WhoAreYouContainer
-      handleClickLink={handleClickLink}
-    />
+    <WhoAreYouContainer />
   ));
-
-  beforeEach(() => {
-    jest.clearAllMocks();
-
-    store.clearActions();
-  });
 
   beforeEach(() => {
     useDispatch.mockImplementation(() => store.dispatch);
@@ -46,72 +36,26 @@ describe('WhoAreYouContainer', () => {
         type: 'question',
         content: CONTENT,
         id: currentId,
-        previousId: given.previousId,
-        nextId: given.nextId,
+        previousId: 1,
+        nextId: 3,
       },
       testImages: IMAGES,
       answers: ANSWERS,
     }));
   });
 
-  context('when not on the last page', () => {
-    given('previousId', () => 1);
-    given('nextId', () => 3);
-
-    describe('the clicked answer button ', () => {
+  context('when the answer button is clicked', () => {
+    it('dispatches `setAnswer`', () => {
       const { id, title } = CONTENT.options[0];
 
-      it('dispatches `setAnswer`', () => {
-        const { getByText } = renderWhoAreYouContainer();
+      const { getByText } = renderWhoAreYouContainer();
 
-        fireEvent.click(getByText(title));
+      fireEvent.click(getByText(title));
 
-        const actions = store.getActions();
+      const actions = store.getActions();
 
-        expect(actions[0])
-          .toEqual(setAnswer({ questionId: currentId, answerId: id }));
-      });
-    });
-
-    describe('the clicked back button', () => {
-      it('dispatches `loadTest` with previous id', () => {
-        const { getByText } = renderWhoAreYouContainer();
-
-        fireEvent.click(getByText(/BACK/));
-
-        const actions = store.getActions();
-
-        expect(actions[0]).toEqual(setTest({ id: 1 }));
-      });
-    });
-
-    describe('the clicked next button', () => {
-      it('dispatches `loadTest` with next id', () => {
-        const { getByText } = renderWhoAreYouContainer();
-
-        fireEvent.click(getByText(/NEXT/));
-
-        const actions = store.getActions();
-
-        expect(actions[0]).toEqual(setTest({ id: 3 }));
-      });
-    });
-  });
-
-  context('when on the last page', () => {
-    given('previousId', () => 4);
-    given('nextId', () => null);
-
-    describe('the clicked next button', () => {
-      it('dispatches `setTest` and `loadResult`', () => {
-        const { getByText } = renderWhoAreYouContainer();
-
-        fireEvent.click(getByText(/NEXT/));
-
-        const actions = store.getActions();
-
-        expect(actions[0]).toEqual(setTest(null));
-      });
+      expect(actions[0])
+        .toEqual(setAnswer({ questionId: currentId, answerId: id }));
     });
   });
 });

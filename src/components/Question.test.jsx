@@ -18,6 +18,7 @@ describe('Question', () => {
     <Question
       content={CONTENT}
       images={IMAGES}
+      selectedAnswer={null}
       handleClickAnswer={handleClickAnswer}
     />
   ));

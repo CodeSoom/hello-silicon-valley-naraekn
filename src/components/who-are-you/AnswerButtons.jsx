@@ -33,7 +33,7 @@ const AnswerText = styled.div({
 });
 
 export default function AnswerButtons({
-  options, profiles, selectedAnswer, handleClick,
+  options, profiles, selectedAnswer, onClick,
 }) {
   const isSelected = (id) => id === selectedAnswer;
 
@@ -48,7 +48,7 @@ export default function AnswerButtons({
             isLast={isLast(option.id)}
           >
             <Button
-              onClick={() => handleClick(option.id)}
+              onClick={() => onClick(option.id)}
             >
               <ProfileImage src={profiles[index]} />
               <AnswerText>{option.title}</AnswerText>

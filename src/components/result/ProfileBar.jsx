@@ -13,7 +13,7 @@ const Indicator = styled.div(({ inProgress }) => ({
   height: '.2em',
   flexGrow: 1,
   margin: '0 .2em',
-  background: inProgress ? 'white' : '#DDD',
+  background: inProgress ? '#FFF' : '#DDD',
 }));
 
 const ProfileContainer = styled.div(({ isBackgroundDark }) => ({

@@ -8,7 +8,7 @@ const Icon = styled.i({
   fontSize: '1em',
 });
 
-export default function NextButton({ onClick, disabled }) {
+export default function SubmitButton({ onClick, disabled }) {
   return (
     <GradientButton
       type="button"
@@ -16,7 +16,7 @@ export default function NextButton({ onClick, disabled }) {
       disabled={disabled}
     >
       <div>
-        <span>NEXT</span>
+        <span>SUBMIT</span>
         <Icon className="material-icons">
           arrow_forward_ios
         </Icon>
