@@ -26,7 +26,7 @@ const HomeButton = styled.button({
   },
 });
 
-const AboutButton = styled.button({
+const ContributorsButton = styled.button({
   float: 'right',
   flexGrow: 1,
   height: '3em',
@@ -53,11 +53,11 @@ export default function ResultPageButtons() {
       >
         HOME
       </HomeButton>
-      <AboutButton type="button">
+      <ContributorsButton type="button">
         CONTRIBUTORS
         {' '}
         <span role="img" aria-label="congrats">🥳</span>
-      </AboutButton>
+      </ContributorsButton>
     </Container>
   );
 }

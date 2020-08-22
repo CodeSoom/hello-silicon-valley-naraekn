@@ -23,14 +23,14 @@ const Container = styled.div({
 });
 
 export default function Home({
-  handleClickTest, handleClickAbout,
+  handleClickTest, handleClickContributors,
 }) {
   return (
     <Container>
       <HomeTitle />
       <HomeButtons
         onClickTest={handleClickTest}
-        onClickAbout={handleClickAbout}
+        onClickContributors={handleClickContributors}
       />
     </Container>
   );

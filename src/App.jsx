@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Switch, Route } from 'react-router-dom';
 
-import AboutPage from './pages/AboutPage';
+import ContributorsPage from './pages/ContributorsPage';
 import HomePage from './pages/HomePage';
 import WhoAreYouPage from './pages/WhoAreYouPage';
 import ResultPage from './pages/ResultPage';
@@ -14,7 +14,7 @@ export default function App() {
     <Root>
       <Switch>
         <Route exact path="/" component={HomePage} />
-        <Route path="/about" component={AboutPage} />
+        <Route path="/contributors" component={ContributorsPage} />
         <Route path="/result" component={ResultPage} />
         <Route path="/tests" component={WhoAreYouPage} />
       </Switch>

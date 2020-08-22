@@ -51,11 +51,13 @@ describe('App', () => {
     });
   });
 
-  context('with path /about', () => {
-    it('renders AboutPage', () => {
-      const { container } = renderApp({ path: '/about' });
+  context('with path /contributors', () => {
+    it('renders Contributors', () => {
+      const { container } = renderApp({ path: '/contributors' });
 
-      expect(container).toHaveTextContent(/About/);
+      expect(container).toHaveTextContent(/DEVELOPER/);
+      expect(container).toHaveTextContent(/DESIGNER/);
+      expect(container).toHaveTextContent(/CREATOR/);
     });
   });
 

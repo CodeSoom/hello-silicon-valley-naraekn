@@ -14,14 +14,14 @@ export default function HomeContainer({ handleClickLink }) {
     handleClickLink('/tests');
   }
 
-  function handleClickAbout() {
-    handleClickLink('/about');
+  function handleClickContributors() {
+    handleClickLink('/contributors');
   }
 
   return (
     <Home
       handleClickTest={handleClickTest}
-      handleClickAbout={handleClickAbout}
+      handleClickContributors={handleClickContributors}
     />
   );
 }
