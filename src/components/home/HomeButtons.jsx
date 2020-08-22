@@ -45,6 +45,13 @@ const ContributorsButton = styled.button({
   },
 });
 
+const InspiredText = styled.div({
+  color: '#BC3DA6',
+  textAlign: 'center',
+  fontSize: '.8em',
+  marginTop: '.5em',
+});
+
 export default function HomeButtons({
   onClickTest, onClickContributors,
 }) {
@@ -60,6 +67,9 @@ export default function HomeButtons({
       >
         만든 사람들
       </ContributorsButton>
+      <InspiredText>
+        Inspired by Instagram
+      </InspiredText>
     </Container>
   );
 }
