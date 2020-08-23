@@ -10,6 +10,7 @@
     "coverage": "npm run test:unit --coverage",
     "test": "npm run test:unit",
     "lint": "eslint --ext js,jsx .",
+    "build": "webpack --mode production --config webpack.config.js",
     "build:dev": "webpack --mode development --config webpack.config.js"
   },
   "repository": {

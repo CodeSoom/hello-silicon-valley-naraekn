@@ -20,7 +20,7 @@ jobs:
     - name: Run unit tests
       run: npm run test:unit
     - name: Build
-      run: npx webpack --mode=production
+      run: npm run build
     - name: Deploy
       if: github.ref == 'refs/heads/master'
       uses: JamesIves/github-pages-deploy-action@releases/v3
