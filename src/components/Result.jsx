@@ -17,8 +17,8 @@ const Container = styled.div(({ id }) => ({
   margin: 0,
   padding: 0,
   backgroundImage: `linear-gradient(
-    60deg, 
-    ${RESULT_GRADIENT_COLORS[id][0]}, 
+    60deg,
+    ${RESULT_GRADIENT_COLORS[id][0]},
     ${RESULT_GRADIENT_COLORS[id][1]}
   )`,
   backgroundAttachment: 'fixed',
