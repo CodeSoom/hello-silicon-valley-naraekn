@@ -6,8 +6,9 @@
   "scripts": {
     "start": "webpack-dev-server",
     "test:unit": "jest",
-    "coverage": "npm run test:unit -- --coverage",
-    "test": "npm run coverage",
+    "test:watch": "npm run test:unit --watchAll --coverage --verbose",
+    "coverage": "npm run test:unit --coverage",
+    "test": "npm run test:unit",
     "lint": "eslint --ext js,jsx ."
   },
   "repository": {
