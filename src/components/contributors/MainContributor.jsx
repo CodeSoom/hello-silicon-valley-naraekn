@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 
 import ExternalLink from './ExternalLink';
 
-import { ExampleImage1 } from '../../assets/images';
+import { contributorsImages } from '../../assets/images';
 
 const Container = styled.div({
   display: 'flex',
@@ -32,9 +32,10 @@ const ProfileImage = styled.img({
   width: '6em',
   height: '6em',
   margin: '1em',
+  border: 0,
   borderRadius: '50%',
   background: 'rgba( 255, 255, 255, 0.7)',
-  padding: '2.5px',
+  boxShadow: '0 6px 6px -6px rgba(0,0,0,.4)',
 });
 
 const Name = styled.div({
@@ -52,15 +53,14 @@ const Description = styled.div({
 
 export default function MainContributor({ contributor }) {
   const {
-    role, name, description, email, link,
+    id, role, name, description, email, link,
   } = contributor;
 
-  // TODO: Apply real profile image
   return (
     <Container>
       <Role>{role}</Role>
       <ProfileImage
-        src={ExampleImage1}
+        src={contributorsImages[id]}
         alt=""
       />
       <Name>{name}</Name>

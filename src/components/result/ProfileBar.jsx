@@ -2,7 +2,7 @@ import React from 'react';
 
 import styled from '@emotion/styled';
 
-import { ExampleImage1 } from '../../assets/images';
+import { Profile104 } from '../../assets/images';
 
 const IndicatorContainer = styled.div({
   display: 'flex',
@@ -44,7 +44,7 @@ export default function ProfileBar({ isBackgroundDark }) {
       <ProfileContainer
         isBackgroundDark={isBackgroundDark}
       >
-        <ProfileImage src={ExampleImage1} />
+        <ProfileImage src={Profile104} />
         What_is_your_company?
       </ProfileContainer>
     </>
