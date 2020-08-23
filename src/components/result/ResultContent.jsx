@@ -17,6 +17,11 @@ const Tag = styled.div({
   textAlign: 'center',
 });
 
+const Subtitle = styled.div({
+  margin: '1em 0',
+  fontWeight: 'bold',
+});
+
 const CompanyLogo = styled.img({
   display: 'block',
   margin: '1.5em auto',
@@ -35,6 +40,7 @@ export default function ResultContent({ first, second, last }) {
         src={companyLogos[first.id]}
         alt=""
       />
+      <Subtitle>{first.subtitle}</Subtitle>
       <p>{first.description}</p>
       <TitleWithEmoji
         title="Second_Fit_Company"
