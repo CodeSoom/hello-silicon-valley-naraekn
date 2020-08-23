@@ -2,7 +2,7 @@ import React from 'react';
 
 import styled from '@emotion/styled';
 
-import { BlackLogoImage } from '../../assets/images';
+import { ContributorsImage } from '../../assets/images';
 
 import { TOP_BAR_HEIGHT } from '../../styles/constants';
 
@@ -19,7 +19,7 @@ const Container = styled.div({
     left: 0,
     right: 0,
     margin: 'auto',
-    height: '3em',
+    height: '2em',
   },
 });
 
@@ -28,7 +28,7 @@ export default function ContributorsBar() {
   return (
     <Container>
       <img
-        src={BlackLogoImage}
+        src={ContributorsImage}
         alt=""
       />
     </Container>

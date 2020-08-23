@@ -19,10 +19,11 @@ const Container = styled.div({
 
 const Role = styled.div({
   marginBottom: '.5em',
-  padding: '.3em',
+  paddingBottom: '.8em',
   width: '100%',
   borderBottom: '.5px solid #E8E8E8',
   fontFamily: 'Source Code Pro',
+  fontSize: '1.2em',
   fontWeight: 'bold',
   textAlign: 'center',
 });
@@ -45,6 +46,7 @@ const Name = styled.div({
 
 const Email = styled.div({
   margin: '.5em 0',
+  color: '#4285E6',
 });
 
 const Description = styled.div({

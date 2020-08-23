@@ -18,14 +18,15 @@ const Tag = styled.div({
 });
 
 const Subtitle = styled.div({
-  margin: '1em 0',
+  margin: '2em 0 .5em',
+  fontSize: '.95em',
   fontWeight: 'bold',
 });
 
 const CompanyLogo = styled.img({
   display: 'block',
-  margin: '1.5em auto',
-  height: '8em',
+  margin: '1.8em auto',
+  height: '6em',
   maxWidth: '60vw',
 });
 
