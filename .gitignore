@@ -2,16 +2,19 @@
 .DS_*
 
 ## IntelliJ
-.idea
+.idea/
 
 ## VS Code
-.vscode
+.vscode/
 
 ## CodeceptJS
-output
+output/
 
 ## Node.js
-node_modules
+node_modules/
 
 ## Jest
-coverage
+coverage/
+
+## Webpack
+dist/
