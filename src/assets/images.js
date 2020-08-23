@@ -1,10 +1,5 @@
-import WhiteLogoImage from './logo_white.png';
-import BlackLogoImage from './logo_black.png';
-
-import ExampleImage1 from './example_image_1.png';
-import ExampleImage2 from './example_image_2.png';
-import ExampleImage3 from './example_image_3.png';
-import ExampleImage4 from './example_image_4.png';
+import WhiteLogoImage from './images/logo/logo_white.png';
+import BlackLogoImage from './images/logo/logo_black.png';
 
 import AmazonLogoImage from './images/result/amazon_logo.png';
 import AmazonTitleImage from './images/result/amazon_title.png';
@@ -61,13 +56,14 @@ import Profile702 from './images/profiles/profile7_2.png';
 import Profile703 from './images/profiles/profile7_3.png';
 import Profile704 from './images/profiles/profile7_4.png';
 
+import NanKimImage from './images/contributors/nkim.png';
+import YeeunHanImage from './images/contributors/yehan.png';
+import SeungjuChoiImage from './images/contributors/sjchoi.png';
+
 export {
   WhiteLogoImage,
   BlackLogoImage,
-  ExampleImage1,
-  ExampleImage2,
-  ExampleImage3,
-  ExampleImage4,
+  Profile104,
 };
 
 export const companyLogos = {
@@ -191,4 +187,10 @@ export const questionnaireImages = {
     Profile103,
     Profile104,
   ],
+};
+
+export const contributorsImages = {
+  1: NanKimImage,
+  2: YeeunHanImage,
+  3: SeungjuChoiImage,
 };

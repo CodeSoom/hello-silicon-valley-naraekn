@@ -1,17 +1,11 @@
 const WhiteLogoImage = '';
 const BlackLogoImage = '';
-const ExampleImage1 = '';
-const ExampleImage2 = '';
-const ExampleImage3 = '';
-const ExampleImage4 = '';
+const Profile104 = '';
 
 export {
   WhiteLogoImage,
   BlackLogoImage,
-  ExampleImage1,
-  ExampleImage2,
-  ExampleImage3,
-  ExampleImage4,
+  Profile104,
 };
 
 export const companyLogos = {
@@ -56,4 +50,10 @@ export const questionnaireImages = {
   15: ['', '', '', ''],
   16: ['', '', '', ''],
   17: ['', '', '', ''],
+};
+
+export const contributorsImages = {
+  1: '',
+  2: '',
+  3: '',
 };
