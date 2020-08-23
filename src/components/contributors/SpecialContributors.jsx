@@ -15,7 +15,7 @@ const Container = styled.div({
 
 const SpecialText = styled.div({
   marginBottom: '.5em',
-  padding: '.3em',
+  paddingBottom: '.8em',
   width: '100%',
   borderBottom: '.5px solid #FFF',
   fontFamily: 'Source Code Pro',

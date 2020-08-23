@@ -6,8 +6,8 @@ const Title = styled.div({
   fontFamily: 'Source Code Pro',
   fontWeight: 'bold',
   textAlign: 'center',
-  padding: '.3em',
-  margin: '.5em 0',
+  paddingBottom: '1em',
+  margin: '1em 0',
   borderBottom: '.5px solid #E8E8E8',
 });
 

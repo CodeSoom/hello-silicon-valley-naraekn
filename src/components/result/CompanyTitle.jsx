@@ -6,10 +6,10 @@ import { companyTitles } from '../../assets/images';
 
 const Company = styled.img({
   display: 'block',
-  margin: '1.5em auto',
+  margin: '1.8em auto',
   padding: '.5em',
   height: '3em',
-  maxWidth: '80vw',
+  maxWidth: '75vw',
   backgroundColor: '#FFF',
   borderRadius: '.5em',
 });
