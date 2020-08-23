@@ -41,6 +41,12 @@ const { actions, reducer } = createSlice({
         },
       };
     },
+    initializeAnswers(state) {
+      return {
+        ...state,
+        answers: {},
+      };
+    },
     setResult(state, { payload: { first, second, last } }) {
       return {
         ...state,
@@ -57,6 +63,7 @@ const { actions, reducer } = createSlice({
 export const {
   setTest,
   setAnswer,
+  initializeAnswers,
   setResult,
 } = actions;
 

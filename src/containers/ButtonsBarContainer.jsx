@@ -13,6 +13,7 @@ import {
   setTest,
   loadTest,
   loadResult,
+  initializeAnswers,
 } from '../slice';
 
 import {
@@ -37,6 +38,7 @@ export default function ButtonsBarContainer({ handleClickResult }) {
 
   function handleClickSubmit(savedAnswers) {
     dispatch(setTest(null));
+    dispatch(initializeAnswers());
     dispatch(loadResult(savedAnswers));
     handleClickResult();
   }

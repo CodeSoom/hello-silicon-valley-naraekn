@@ -3,6 +3,7 @@ import reducer from './reducer';
 import {
   setTest,
   setAnswer,
+  initializeAnswers,
   setResult,
 } from './slice';
 
@@ -36,6 +37,21 @@ describe('reducer', () => {
       );
 
       expect(answers[questionId]).toEqual(answerId);
+    });
+  });
+
+  describe('initializeAnswers', () => {
+    it('sets the answers to an empty object', () => {
+      const previousState = {
+        answers: {},
+      };
+
+      const { answers } = reducer(
+        previousState,
+        initializeAnswers(),
+      );
+
+      expect(answers).toMatchObject({});
     });
   });
 
