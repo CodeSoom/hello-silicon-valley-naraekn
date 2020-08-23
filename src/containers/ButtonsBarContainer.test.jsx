@@ -8,7 +8,7 @@ import configureStore from 'redux-mock-store';
 
 import ButtonsBarContainer from './ButtonsBarContainer';
 
-import { setTest } from '../slice';
+import { setTest, initializeAnswers } from '../slice';
 
 import CONTENT from '../../fixtures/content';
 import ANSWERS from '../../fixtures/answers';
@@ -86,7 +86,7 @@ describe('ButtonsBarContainer', () => {
     given('nextId', () => null);
 
     describe('the clicked next button', () => {
-      it('dispatches `setTest` and `loadResult`', () => {
+      it('dispatches `setTest`, `initializeAnswers`, `loadResult`', () => {
         const { getByText } = renderButtonsBarContainer();
 
         fireEvent.click(getByText(/SUBMIT/));
@@ -94,6 +94,7 @@ describe('ButtonsBarContainer', () => {
         const actions = store.getActions();
 
         expect(actions[0]).toEqual(setTest(null));
+        expect(actions[1]).toEqual(initializeAnswers());
       });
     });
   });
