@@ -1,6 +1,6 @@
 import WhiteLogoImage from './images/logo/logo_white.png';
 import BlackLogoImage from './images/logo/logo_black.png';
-import ContributorsImage from './images/logo/logo_contributors.png'
+import ContributorsImage from './images/logo/logo_contributors.png';
 
 import AmazonLogoImage from './images/result/amazon_logo.png';
 import AmazonTitleImage from './images/result/amazon_title.png';
