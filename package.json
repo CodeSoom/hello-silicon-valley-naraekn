@@ -9,7 +9,8 @@
     "test:watch": "npm run test:unit --watchAll --coverage --verbose",
     "coverage": "npm run test:unit --coverage",
     "test": "npm run test:unit",
-    "lint": "eslint --ext js,jsx ."
+    "lint": "eslint --ext js,jsx .",
+    "build:dev": "webpack --mode development --config webpack.config.js"
   },
   "repository": {
     "type": "git",
