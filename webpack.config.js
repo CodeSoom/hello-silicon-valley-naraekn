@@ -1,12 +1,12 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-module.exports = (env, argv) => ({
+module.exports = {
   entry: path.resolve(__dirname, 'src/index.jsx'),
   output: {
     path: path.resolve(__dirname, './dist'),
     filename: 'bundle-[hash].js',
-    publicPath: argv.mode === 'production' ? '/project-react-1-naraekn' : '/',
+    publicPath: '/',
   },
   module: {
     rules: [
@@ -32,4 +32,4 @@ module.exports = (env, argv) => ({
       template: path.resolve(__dirname, 'index.html'),
     }),
   ],
-});
+};
