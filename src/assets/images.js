@@ -44,18 +44,6 @@ import Profile401 from './images/profiles/profile4_1.png';
 import Profile402 from './images/profiles/profile4_2.png';
 import Profile403 from './images/profiles/profile4_3.png';
 import Profile404 from './images/profiles/profile4_4.png';
-import Profile501 from './images/profiles/profile5_1.png';
-import Profile502 from './images/profiles/profile5_2.png';
-import Profile503 from './images/profiles/profile5_3.png';
-import Profile504 from './images/profiles/profile5_4.png';
-import Profile601 from './images/profiles/profile6_1.png';
-import Profile602 from './images/profiles/profile6_2.png';
-import Profile603 from './images/profiles/profile6_3.png';
-import Profile604 from './images/profiles/profile6_4.png';
-import Profile701 from './images/profiles/profile7_1.png';
-import Profile702 from './images/profiles/profile7_2.png';
-import Profile703 from './images/profiles/profile7_3.png';
-import Profile704 from './images/profiles/profile7_4.png';
 
 import NanKimImage from './images/contributors/nkim.png';
 import YeeunHanImage from './images/contributors/yehan.png';
@@ -110,10 +98,10 @@ export const questionnaireImages = {
     Profile204,
   ],
   4: [
-    Profile101,
-    Profile102,
-    Profile103,
-    Profile104,
+    Profile301,
+    Profile302,
+    Profile303,
+    Profile304,
   ],
   5: [
     Profile401,
@@ -126,16 +114,16 @@ export const questionnaireImages = {
     FeedImage202,
   ],
   7: [
-    Profile601,
-    Profile602,
-    Profile603,
-    Profile604,
+    Profile101,
+    Profile102,
+    Profile103,
+    Profile104,
   ],
   8: [
-    Profile301,
-    Profile302,
-    Profile303,
-    Profile304,
+    Profile201,
+    Profile202,
+    Profile203,
+    Profile204,
   ],
   9: [
     Profile301,
@@ -144,50 +132,50 @@ export const questionnaireImages = {
     Profile304,
   ],
   10: [
-    Profile501,
-    Profile502,
-    Profile503,
-    Profile504,
+    Profile401,
+    Profile402,
+    Profile403,
+    Profile404,
   ],
   11: [
     FeedImage301,
     FeedImage302,
   ],
   12: [
-    Profile301,
-    Profile302,
-    Profile303,
-    Profile304,
-  ],
-  13: [
-    Profile601,
-    Profile602,
-    Profile603,
-    Profile604,
-  ],
-  14: [
-    Profile701,
-    Profile702,
-    Profile703,
-    Profile704,
-  ],
-  15: [
-    Profile601,
-    Profile602,
-    Profile603,
-    Profile604,
-  ],
-  16: [
-    Profile301,
-    Profile302,
-    Profile303,
-    Profile304,
-  ],
-  17: [
     Profile101,
     Profile102,
     Profile103,
     Profile104,
+  ],
+  13: [
+    Profile201,
+    Profile202,
+    Profile203,
+    Profile204,
+  ],
+  14: [
+    Profile301,
+    Profile302,
+    Profile303,
+    Profile304,
+  ],
+  15: [
+    Profile401,
+    Profile402,
+    Profile403,
+    Profile404,
+  ],
+  16: [
+    Profile101,
+    Profile102,
+    Profile103,
+    Profile104,
+  ],
+  17: [
+    Profile301,
+    Profile302,
+    Profile303,
+    Profile304,
   ],
 };
 
