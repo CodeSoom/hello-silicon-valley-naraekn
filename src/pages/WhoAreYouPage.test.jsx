@@ -11,6 +11,8 @@ import ANSWERS from '../../fixtures/answers';
 
 const mockPush = jest.fn();
 
+window.scrollTo = jest.fn();
+
 jest.mock('react-redux');
 jest.mock('../assets/images');
 jest.mock('react-router-dom', () => ({
@@ -45,6 +47,8 @@ describe('WhoAreYouPage', () => {
       fireEvent.click(getByText(/SUBMIT/));
 
       expect(mockPush).toBeCalledWith('/result');
+
+      expect(window.scrollTo).toBeCalledWith(0, 0);
     });
   });
 });
