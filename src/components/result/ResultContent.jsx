@@ -34,7 +34,7 @@ export default function ResultContent({ first, second, last }) {
   return (
     <Container>
       <TitleWithEmoji
-        title="THIS_IS_YOUR_COMPANY!"
+        title="당신의_회사는_바로!"
         emoji="🎉"
       />
       <CompanyLogo
@@ -44,12 +44,12 @@ export default function ResultContent({ first, second, last }) {
       <Subtitle>{first.subtitle}</Subtitle>
       <p>{first.description}</p>
       <TitleWithEmoji
-        title="Second_Fit_Company"
+        title="두번째로_잘어울리는_회사"
         emoji="🥈"
       />
       <Tag>{second.tag}</Tag>
       <TitleWithEmoji
-        title="Worst_Fit_Company"
+        title="나와제일_안맞는_회사"
         emoji="👎"
       />
       <Tag>{last.tag}</Tag>
