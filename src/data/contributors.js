@@ -57,7 +57,7 @@ const contributors = {
       id: 1,
       tag: `
         javascript를 1도 모르던 사람을, 
-        TDD로 거뜬하게 웹 개발 할 수 있도록 성장시켜준 @Codesoom
+        TDD로 거뜬하게 웹 개발 할 수 있도록 성장시켜준 @코드숨
       `,
     },
     {
