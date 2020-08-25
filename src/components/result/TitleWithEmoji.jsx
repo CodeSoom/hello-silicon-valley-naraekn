@@ -3,12 +3,12 @@ import React from 'react';
 import styled from '@emotion/styled';
 
 const Title = styled.div({
-  fontFamily: 'Source Code Pro',
+  margin: '1.2em 0',
+  paddingBottom: '.8em',
+  borderBottom: '.5px solid #E8E8E8',
+  fontSize: '1.1em',
   fontWeight: 'bold',
   textAlign: 'center',
-  paddingBottom: '1em',
-  margin: '1em 0',
-  borderBottom: '.5px solid #E8E8E8',
 });
 
 export default function TitleWithEmoji({ title, emoji }) {
