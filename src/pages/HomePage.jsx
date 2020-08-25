@@ -2,6 +2,8 @@ import React from 'react';
 
 import { useHistory } from 'react-router-dom';
 
+import { scrollToTop } from '../utils';
+
 import HomeContainer from '../containers/HomeContainer';
 
 export default function HomePage() {
@@ -9,6 +11,8 @@ export default function HomePage() {
 
   function handleClickLink(url) {
     history.push(url);
+
+    scrollToTop();
   }
 
   return (

@@ -22,9 +22,10 @@ export function calculateScore({ answers, scores }) {
     .reduce((acc, cur) => {
       const newAccumulator = {};
 
-      Object.keys(acc).forEach((key) => {
-        newAccumulator[key] = acc[key] + cur[key];
-      });
+      Object.keys(acc)
+        .forEach((key) => {
+          newAccumulator[key] = acc[key] + cur[key];
+        });
 
       return newAccumulator;
     });
@@ -46,3 +47,5 @@ export function findResultIds(scores) {
 
   return resultIds;
 }
+
+export const scrollToTop = () => window.scrollTo(0, 0);

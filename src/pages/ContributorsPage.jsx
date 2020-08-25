@@ -2,6 +2,8 @@ import React from 'react';
 
 import { useHistory } from 'react-router-dom';
 
+import { scrollToTop } from '../utils';
+
 import ContributorsBar from '../components/contributors/ContributorsBar';
 import MainContributor from '../components/contributors/MainContributor';
 import SpecialContributors from '../components/contributors/SpecialContributors';
@@ -16,6 +18,8 @@ export default function ContributorsPage() {
 
   function handleClick() {
     history.push('/');
+
+    scrollToTop();
   }
 
   return (
