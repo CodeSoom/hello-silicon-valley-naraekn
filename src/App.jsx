@@ -6,6 +6,7 @@ import ContributorsPage from './pages/ContributorsPage';
 import HomePage from './pages/HomePage';
 import WhoAreYouPage from './pages/WhoAreYouPage';
 import ResultPage from './pages/ResultPage';
+import NotFoundPage from './pages/NotFoundPage';
 
 import Root from './styles/root';
 
@@ -17,6 +18,7 @@ export default function App() {
         <Route path="/contributors" component={ContributorsPage} />
         <Route path="/result" component={ResultPage} />
         <Route path="/who-are-you" component={WhoAreYouPage} />
+        <Route component={NotFoundPage} />
       </Switch>
     </Root>
   );
