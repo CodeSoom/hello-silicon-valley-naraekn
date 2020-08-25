@@ -24,7 +24,6 @@ const Container = styled.div({
 });
 
 export default function ContributorsBar() {
-  // TODO: Apply a real contributors logo image
   return (
     <Container>
       <img
