@@ -20,7 +20,9 @@ jobs:
     - name: Run unit tests
       run: npm run test:unit
     - name: Build
-      run: npm run build
+      run: |
+        npm run build
+        cp dist/index.html dist/404.html
     - name: Deploy
       if: github.ref == 'refs/heads/master'
       uses: JamesIves/github-pages-deploy-action@releases/v3
