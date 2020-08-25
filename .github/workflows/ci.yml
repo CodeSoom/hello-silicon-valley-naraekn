@@ -24,6 +24,7 @@ jobs:
         npm run build
         cp dist/index.html dist/404.html
         cp -r public dist/
+    - name: Deploy  
       if: github.ref == 'refs/heads/master'
       uses: JamesIves/github-pages-deploy-action@releases/v3
       with:
