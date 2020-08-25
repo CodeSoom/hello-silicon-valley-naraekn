@@ -20,6 +20,7 @@ import {
   get,
   isOverview,
   calculatePercent,
+  scrollToTop,
 } from '../utils';
 
 export default function ButtonsBarContainer({ handleClickResult }) {
@@ -30,10 +31,14 @@ export default function ButtonsBarContainer({ handleClickResult }) {
 
   function handleClickBack(previous) {
     dispatch(loadTest(previous));
+
+    scrollToTop();
   }
 
   function handleClickNext(next) {
     dispatch(loadTest(next));
+
+    scrollToTop();
   }
 
   function handleClickSubmit(savedAnswers) {
@@ -41,6 +46,7 @@ export default function ButtonsBarContainer({ handleClickResult }) {
     dispatch(initializeAnswers());
     dispatch(loadResult(savedAnswers));
     handleClickResult();
+    scrollToTop();
   }
 
   const {

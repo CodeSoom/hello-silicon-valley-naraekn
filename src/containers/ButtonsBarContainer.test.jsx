@@ -22,6 +22,8 @@ describe('ButtonsBarContainer', () => {
 
   const handleClickResult = jest.fn();
 
+  window.scrollTo = jest.fn();
+
   const mockStore = configureStore(getDefaultMiddleware());
   const store = mockStore({});
 
