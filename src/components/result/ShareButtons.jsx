@@ -28,7 +28,6 @@ export default function ShareButtons() {
       <ButtonWrapper>
         <FacebookShareButton url={shareUrl}>
           <FacebookIcon
-            logoFillColor="white"
             size={32}
             round
           />
@@ -37,7 +36,6 @@ export default function ShareButtons() {
       <ButtonWrapper>
         <FacebookMessengerShareButton url={shareUrl}>
           <FacebookMessengerIcon
-            logoFillColor="white"
             size={32}
             round
           />
@@ -46,7 +44,6 @@ export default function ShareButtons() {
       <ButtonWrapper>
         <TwitterShareButton url={shareUrl}>
           <TwitterIcon
-            logoFillColor="white"
             size={32}
             round
           />
