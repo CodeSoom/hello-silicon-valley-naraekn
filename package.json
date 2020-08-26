@@ -1,15 +1,15 @@
 {
-  "name": "project-react-1-naraekn",
+  "name": "hello-silicon-valley",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server",
     "test:unit": "jest",
-    "test:watch": "npm run test:unit --watchAll --coverage --verbose",
+    "watch": "jest --watchAll --coverage --verbose",
     "coverage": "npm run test:unit --coverage",
     "test": "npm run test:unit",
-    "lint": "eslint --ext js,jsx .",
+    "lint": "eslint --fix --ext .js,.jsx src",
     "build": "webpack --mode production --config webpack.config.js",
     "build:dev": "webpack --mode development --config webpack.config.js"
   },
