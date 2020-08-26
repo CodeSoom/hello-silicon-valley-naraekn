@@ -2,7 +2,7 @@ import React from 'react';
 
 import styled from '@emotion/styled';
 
-import { MAIN_GRADIENT_COLOR } from '../../styles/constants';
+import { HOME_GRADIENT_COLOR } from '../../styles/constants';
 
 const GradientLink = styled.a({
   height: '2.5em',
@@ -11,18 +11,19 @@ const GradientLink = styled.a({
   borderRadius: '2em',
   color: '#333',
   fontWeight: 'bold',
-  marginTop: '1em',
+  margin: '.3em 0',
   padding: '.3em',
   outline: 'none',
   backgroundImage: `linear-gradient(
     60deg, 
-    ${MAIN_GRADIENT_COLOR[1]}, 
-    ${MAIN_GRADIENT_COLOR[0]}
+    ${HOME_GRADIENT_COLOR[1]}, 
+    ${HOME_GRADIENT_COLOR[0]}
   )`,
   textDecoration: 'none',
   '& div': {
     display: 'flex',
     height: '100%',
+    width: '100%',
     padding: '.5em',
     borderRadius: '2em',
     backgroundColor: '#FFF',

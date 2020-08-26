@@ -13,10 +13,18 @@ const contributors = {
         갑자기 React를 배워서 혼자서 3주 만에 뚝딱뚝딱 웹을 개발하게 되는데..! 
         (두둥! 🤭)
       `,
-      link: {
-        title: 'GitHub',
-        url: 'https://github.com/naraekn',
-      },
+      link: [
+        {
+          id: 1,
+          title: 'GitHub',
+          url: 'https://github.com/naraekn',
+        },
+        {
+          id: 2,
+          title: 'Blog',
+          url: 'https://naraekn.github.io/',
+        },
+      ],
     },
     {
       id: 2,
@@ -31,10 +39,18 @@ const contributors = {
         아니, 디자이너라면! 깃 포크 뜨고! css 코드 고쳐서! 
         PR정도는 날려 주는 것이!! 기본아니겠습니까 😎
       `,
-      link: {
-        title: 'GitHub',
-        url: 'https://github.com/canary4651',
-      },
+      link: [
+        {
+          id: 1,
+          title: 'GitHub',
+          url: 'https://github.com/canary4651',
+        },
+        {
+          id: 2,
+          title: 'Instagram',
+          url: 'https://www.instagram.com/canary25/?hl=ko',
+        },
+      ],
     },
     {
       id: 3,
@@ -46,10 +62,18 @@ const contributors = {
         주변 사람들 MBTI 정도는 거뜬히 외우고 있는 나에게 심리 테스트를 만들자고 꼬시다니! 🤪
         실리콘밸리에서 경험했던 것을 만드는 지금, 아주 짜릿해!! Do what I love!! 🤩
       `,
-      link: {
-        title: 'Instagram',
-        url: 'https://www.instagram.com/mozzimozzichoi/',
-      },
+      link: [
+        {
+          id: 1,
+          title: 'Instagram',
+          url: 'https://www.instagram.com/mozzimozzichoi/',
+        },
+        {
+          id: 2,
+          title: 'LinkedIn',
+          url: 'http://linkedin.com/in/seungju-choi-294476163',
+        },
+      ],
     },
   ],
   special: [

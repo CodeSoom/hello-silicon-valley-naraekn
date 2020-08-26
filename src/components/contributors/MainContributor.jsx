@@ -50,7 +50,7 @@ const Email = styled.div({
 });
 
 const Description = styled.div({
-  marginTop: '.5em',
+  margin: '.5em 0 1em 0',
 });
 
 export default function MainContributor({ contributor }) {
@@ -68,7 +68,8 @@ export default function MainContributor({ contributor }) {
       <Name>{name}</Name>
       <Email>{email}</Email>
       <Description>{description}</Description>
-      <ExternalLink link={link} />
+      <ExternalLink link={link[0]} />
+      <ExternalLink link={link[1]} />
     </Container>
   );
 }
