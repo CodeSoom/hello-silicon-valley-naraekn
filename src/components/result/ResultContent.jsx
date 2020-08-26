@@ -3,6 +3,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 
 import TitleWithEmoji from './TitleWithEmoji';
+import ShareButtons from './ShareButtons';
 
 import { companyLogos } from '../../assets/images';
 
@@ -53,6 +54,11 @@ export default function ResultContent({ first, second, last }) {
         emoji="👎"
       />
       <Tag>{last.tag}</Tag>
+      <TitleWithEmoji
+        title="공유하기"
+        emoji="💡"
+      />
+      <ShareButtons />
     </Container>
   );
 }
