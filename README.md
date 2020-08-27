@@ -32,6 +32,6 @@ npm run test:unit
 
 ## Watch tests
 ```
-npm watch
+npm run watch
 ```
 
