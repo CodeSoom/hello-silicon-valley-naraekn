@@ -1,12 +1,37 @@
-# 당신에게 어울리는 실리콘밸리 기업은?
 
-스탠퍼드 대학을 막 졸업한 당신!
+Hello! Silicon Valley
+===
 
-주말에는 샌프란시스코 근처를 여행하고,
-평일에는 101 highway를 타고 매일 회사로 출근합니다.
+[![Build Status](https://github.com/microprotect/microprotect.com/workflows/CI/badge.svg?branch=master)](https://github.com/CodeSoom/hello-silicon-valley-naraekn/actions)
 
-새로운 사람을 만나기 위해 산호세에서 열리는 스타트업네트워킹 파티에 갔다가, 그만 창업을 결심하게 되는데..!
+<img width="410" alt="preview" src="https://user-images.githubusercontent.com/34229459/91413095-99644080-e885-11ea-9b08-f51593a47f26.png">
+<img width="678" alt="result_preview" src="https://user-images.githubusercontent.com/34229459/91412203-666d7d00-e884-11ea-8df5-6e9a409b47f7.png">
 
-당신이라면 어떤 선택들을 할 건가요?
+Install dependencies
+---
+```
+npm install
+```
 
-당신의 선택을 분석해서 당신에게 가장 잘 어울리는 실리콘밸리 기업을 추천해드립니다!
+## Run web server
+```
+npm start
+```
+
+## Lint and fix
+```
+npm run lint
+```
+
+## Run unit tests
+```
+npm test
+# or
+npm run test:unit
+```
+
+## Watch tests
+```
+npm watch
+```
+
