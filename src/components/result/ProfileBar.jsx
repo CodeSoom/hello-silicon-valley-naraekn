@@ -45,7 +45,7 @@ export default function ProfileBar({ isBackgroundDark }) {
         isBackgroundDark={isBackgroundDark}
       >
         <ProfileImage src={Profile104} />
-        What_is_your_company?
+        Who_is_your_cat?
       </ProfileContainer>
     </>
   );

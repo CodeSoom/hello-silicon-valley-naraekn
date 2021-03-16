@@ -42,6 +42,7 @@ const ContributorsButton = styled.button({
   '&:hover': {
     transition: '.5s',
     boxShadow: '0 15px 15px -15px rgba(0,0,0,.5)',
+    color: '#b2f4ff',
   },
 });
 
@@ -62,11 +63,13 @@ export default function HomeButtons({
       >
         테스트 시작하기
       </GotoTestButton>
+      {/*
       <ContributorsButton
         onClick={onClickContributors}
       >
         만든 사람들
       </ContributorsButton>
+      */}
       <InspiredText>
         Inspired by Instagram
       </InspiredText>

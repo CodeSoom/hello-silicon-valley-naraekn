@@ -2,7 +2,16 @@ import WhiteLogoImage from './images/logo/logo_white.png';
 import BlackLogoImage from './images/logo/logo_black.png';
 import ContributorsImage from './images/logo/logo_contributors.png';
 
-import AmazonLogoImage from './images/result/amazon_logo.png';
+import cat1 from './images/result/1.jpg';
+import cat2 from './images/result/2.jpg';
+import cat3 from './images/result/3.jpg';
+import cat4 from './images/result/4.jpg';
+import cat5 from './images/result/5.jpg';
+import cat6 from './images/result/6.jpg';
+import cat7 from './images/result/7.jpg';
+import cat8 from './images/result/8.jpg';
+import cat9 from './images/result/9.jpg';
+
 import AmazonTitleImage from './images/result/amazon_title.png';
 import AppleLogoImage from './images/result/apple_logo.png';
 import AppleTitleImage from './images/result/apple_title.png';
@@ -21,8 +30,8 @@ import PlugAndPlayTitleImage from './images/result/plugandplay_title.png';
 import TeslaLogoImage from './images/result/tesla_logo.png';
 import TeslaTitleImage from './images/result/tesla_title.png';
 
-import FeedImage101 from './images/feeds/feed1_1.png';
-import FeedImage102 from './images/feeds/feed1_2.png';
+import FeedImage101 from './images/feeds/feed1.jpg';
+import FeedImage102 from './images/feeds/feed2.jpg';
 import FeedImage201 from './images/feeds/feed2_1.png';
 import FeedImage202 from './images/feeds/feed2_2.png';
 import FeedImage301 from './images/feeds/feed3_1.png';
@@ -57,15 +66,15 @@ export {
 };
 
 export const companyLogos = {
-  1: GoogleLogoImage,
-  2: NetflixLogoImage,
-  3: FacebookLogoImage,
-  4: PlugAndPlayLogoImage,
-  5: AmazonLogoImage,
-  6: IntelLogoImage,
-  7: AppleLogoImage,
-  8: TeslaLogoImage,
-  9: MicrosoftLogoImage,
+  1: cat1,
+  2: cat2,
+  3: cat3,
+  4: cat4,
+  5: cat5,
+  6: cat6,
+  7: cat7,
+  8: cat8,
+  9: cat9,
 };
 
 export const companyTitles = {
@@ -82,32 +91,32 @@ export const companyTitles = {
 
 export const questionnaireImages = {
   1: [
-    FeedImage101,
+    FeedImage102,
     FeedImage102,
   ],
   2: [
-    Profile101,
-    Profile102,
-    Profile103,
-    Profile104,
+    Profile203,
+    Profile304,
+    Profile203,
+    Profile304,
   ],
   3: [
-    Profile201,
-    Profile202,
     Profile203,
-    Profile204,
+    Profile304,
+    Profile203,
+    Profile304,
   ],
   4: [
-    Profile301,
-    Profile302,
-    Profile303,
+    Profile203,
+    Profile304,
+    Profile203,
     Profile304,
   ],
   5: [
-    Profile401,
-    Profile402,
-    Profile403,
-    Profile404,
+    Profile203,
+    Profile304,
+    Profile203,
+    Profile304,
   ],
   6: [
     FeedImage201,

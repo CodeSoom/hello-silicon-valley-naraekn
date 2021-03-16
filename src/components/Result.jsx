@@ -38,9 +38,13 @@ export default function Result({
         <ProfileBar
           isBackgroundDark={first.type === 'dark'}
         />
+        
+          {/*
         <CompanyTitle
           id={first.id}
         />
+          */}
+        
         <ResultContent
           first={first}
           second={second}

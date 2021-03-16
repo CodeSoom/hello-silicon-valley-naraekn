@@ -26,12 +26,15 @@ const Text = styled.div({
 export default function HomeTitle() {
   return (
     <Container>
+      {
       <Logo
         src={WhiteLogoImage}
         alt=""
       />
-      <Text>당신에게 어울리는</Text>
-      <Text>실리콘밸리 기업을 추천해드립니다</Text>
+      
+    }
+      <Text>만약에 당신이</Text>
+      <Text>고양이로 태어난다면 어떨까요?</Text>
     </Container>
   );
 }
