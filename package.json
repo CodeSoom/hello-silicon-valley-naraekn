@@ -4,16 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d -build",
     "start": "webpack-dev-server",
     "test:unit": "jest",
     "watch": "jest --watchAll --coverage --verbose",
     "coverage": "npm run test:unit --coverage",
     "test": "npm run test:unit",
     "lint": "eslint --fix --ext .js,.jsx src",
-    "predeploy" : "npm run build",
-    "deploy" : "gh-pages -d -build",
     "build": "webpack --mode production --config webpack.config.js",
     "build:dev": "webpack --mode development --config webpack.config.js"
+
   },
   "repository": {
     "type": "git",
